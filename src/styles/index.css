@@ -1,0 +1,110 @@
+@font-face {
+  font-family: "Akira";
+  src: url("../../Jasons Tree/assets/fonts/Akira Expanded Demo.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AvantGarde";
+  src: url("../../Jasons Tree/assets/fonts/ITC Avant Garde Gothic Std Extra Light.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AvantGardeBold";
+  src: url("../../Jasons Tree/assets/fonts/ITC Avant Garde Gothic Bold.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.Akria {
+  font-family: "Akira", sans-serif;
+}
+
+.AvantLight {
+  font-family: "AvantGarde", sans-serif;
+}
+
+.AvantBold {
+  font-family: "AvantGardeBold", sans-serif;
+}
+
+.review-slider {
+  position: relative;
+  min-height: 220px;
+  overflow: visible;
+}
+
+.review-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.review-slide.active {
+  position: relative;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.review-slide.prev {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.review-slide.next {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.swiper-button-prev {
+  left: -24px;
+}
+.swiper-button-next {
+  right: -24px;
+}
+
+.swiper-button-prev img,
+.swiper-button-next img {
+  display: block;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .swiper-button-prev {
+    left: -18px;
+  }
+
+  .swiper-button-next {
+    right: -18px;
+  }
+}
+
+

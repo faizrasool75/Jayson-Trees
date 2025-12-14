@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Akira";
+  src: url("./assets/fonts/Akira Expanded Demo.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AvantGarde";
+  src: url("./assets/fonts/ITC\ Avant\ Garde\ Gothic\ Std\ Extra\ Light.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AvantGardeBold";
+  src: url("./assets/fonts/ITC\ Avant\ Garde\ Gothic\ Bold.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+
+.Akria {
+  font-family: "Akira", sans-serif;
+}
+
+.AvantLight {
+  font-family: "AvantGarde", sans-serif;
+}
+
+.AvantBold{
+  font-family: "AvantGardeBold", sans-serif;
+
+}

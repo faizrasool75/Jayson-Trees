@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <div
+      class="main text-[#0F0F0F] w-full overflow-hidden"
+      style="
+        background-image: url('./assets/images/mainbg.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      "
+    >
+      <div
+        id="menu"
+        class="mobileMenu flex hidden sm:hidden flex-col justify-start items-start fixed top-0 left-0 gap-16 w-full h-screen bg-[#356020] z-[99999] p-8"
+      >
+        <div class="flex w-full justify-between items-center">
+          <img src="./assets/images/mobileLogo.png" alt="" class="w-20" />
+          <button
+            id="HamMenuClose"
+            class="flex justify-start font-light items-center gap-2 sm:hidden text-white text-lg"
+          >
+            <img src="./assets/svg/mobileMenuButton.svg" alt="" class="w-5" />
+            Menu
+          </button>
+        </div>
+        <div class="flex flex-col justify-start items-start gap-6 pl-8">
+          <a
+            href="./home.html"
+            class="AvantLight text-2xl text-white flex justify-start items-center gap-2"
+          >
+            <img
+              src="./assets/svg/mobildeMenuLeafsvg.svg"
+              alt=""
+              class="w-8 hidden"
+            />
+            Home</a
+          >
+          <a
+            href=""
+            class="AvantLight text-2xl text-white font-semibold flex justify-start items-center gap-2"
+          >
+            <img
+              src="./assets/svg/mobildeMenuLeafsvg.svg"
+              alt=""
+              class="w-8 hidden"
+            />
+            About us</a
+          >
+          <a
+            href=""
+            class="AvantLight text-2xl text-white font-semibold flex justify-start items-center gap-2"
+          >
+            <img
+              src="./assets/svg/mobildeMenuLeafsvg.svg"
+              alt=""
+              class="w-8 hidden"
+            />
+            Why Choose us</a
+          >
+          <a
+            href=""
+            class="AvantBold text-3xl text-white font-semibold flex justify-start items-center gap-2"
+          >
+            <img src="./assets/svg/mobildeMenuLeafsvg.svg" alt="" class="w-8" />
+            Services></a
+          >
+          <a
+            href=""
+            class="AvantLight text-2xl text-white font-semibold flex justify-start items-center gap-2"
+          >
+            <img
+              src="./assets/svg/mobildeMenuLeafsvg.svg"
+              alt=""
+              class="w-8 hidden"
+            />
+            Gallery</a
+          >
+          <a
+            href=""
+            class="AvantLight text-2xl text-white font-semibold flex justify-start items-center gap-2"
+          >
+            <img
+              src="./assets/svg/mobildeMenuLeafsvg.svg"
+              alt=""
+              class="w-8 hidden"
+            />
+            Contact us</a
+          >
+        </div>
+        <button
+          id="HamMenuClose"
+          class="mx-auto px-4 py-3 text-xl font-bold AvantBold bg-[#6DC642] rounded-2xl text-white rounded-tr-none transition ease-in duration-150 hover:bg-white hover:text-[#6DC642]"
+        >
+          Book an Appointment
+        </button>
+      </div>
+      <header
+        class="fixed top-0 left-0 right-0 w-full px-4 py-5 sm:py-8 flex justify-between sm:justify-center items-center gap-20 z-[999] AvantLight"
+      >
+        <div
+          class="hidden sm:flex justify-start text-[#0F0F0F] items-center gap-10 text-base"
+        >
+          <a href="./home.html">Home</a>
+          <a href="">About Us</a>
+          <a href="">Why Choose Us</a>
+        </div>
+        <img src="./assets/images/logo.png" alt="" class="w-16 sm:w-24" />
+        <div
+          class="hidden sm:flex justify-start text-[#0F0F0F] items-center gap-10 text-base"
+        >
+          <a href="./services.html" 
+          class="AvantBold flex justify-start items-center gap-1">
+            <img src="./assets/svg/mobildeMenuLeafsvg.svg" alt=""
+            class="w-6"> Services></a>
+          <a href="">Gallery</a>
+          <a href="">Contact Us</a>
+        </div>
+        <button
+          id="HamMenuOpen"
+          class="flex justify-start items-center gap-2 sm:hidden text-[#0F0F0F] text-lg"
+        >
+          <img src="./assets/svg/mobileMenuButton.svg" alt="" class="w-5" />
+          Menu
+        </button>
+      </header>
+      <!-- HERO SECTION -->
+      <div class="w-full min-h-screen max-h-fit relative z-[99]">
+        <div class="w-full h-fit relative">
+          <div class="w-full h-fit relative">
+            <img
+              src="./assets/images/servicepageHero.png"
+              alt=""
+              class="w-full h-auto top-0 left-0 hidden sm:block"
+            />
+            <img
+              src="./assets/images/servicepageHero.png"
+              alt=""
+              class="w-full h-screen top-0 left-0 object-cover sm:hidden"
+            />
+            <div
+              class="absolute top-0 left-0 w-full h-screen pt-28 sm:pt-60 flex flex-col gap-5 sm:gap-12"
+            >
+              <h1
+                class="relative text-center text-2xl
+                sm:text-4xl Akria text-[#0F0F0F] max-sm:text-shadow-lg"
+              >
+                PROFESSIONAL RESIDENTIAL &<br />
+                COMMERCIAL<span class="text-[#6DC642]">TREE CARE</span>
+              </h1>
+              <p class="AvantLight text-base sm:text-lg max-sm:font-semibold sm:text-sm text-center">
+                Keeping your trees healthy, safe, and beautifully shaped
+                requires expert attention. At <br />
+                Jayson’s Tree Service, we provide a full range of maintenance
+                solutions designed to <br />
+                enhance property value, improve tree health, and maintain a
+                clean, professional <br />
+                appearance for homes, retail centers, and commercial properties.
+              </p>
+                <button
+          id="HamMenuClose"
+          class="mx-auto px-4 py-3 text-lg font-bold
+           AvantBold bg-[#6DC642] rounded-2xl text-white 
+           rounded-tr-none transition ease-in duration-150
+            hover:bg-white hover:text-[#6DC642] z-[999]"
+        >
+          Book an Appointment
+        </button>
+
+            </div>
+          </div>
+          <img
+            src="./assets/images/servicepagegreensvg.png"
+            alt=""
+            class="w-full h-auto absolute top-0 left-0 hidden sm:block"
+          />
+          <img
+            src="./assets/images/textserviceongreensvg.png"
+            alt=""
+            class="w-full h-auto absolute top-24 left-0 hidden sm:block"
+          />
+        </div>
+      </div>
+      <!-- WHY CHOOSE US SECTION -->
+      <div class="w-full h-fit sm:min-h-screen pt-16 sm:pt-40 relative max-sm:pb-10">
+        <img
+          src="./assets/images/lastLeafHeroPage.png"
+          alt=""
+          class="w-28 sm:w-44 absolute top-[0%] sm:top-[-22%] right-0"
+        />
+        <img
+          src="./assets/images/leaf-2.png"
+          alt=""
+          class="w-28 absolute top-[38%] left-0"
+        />
+        <div class="w-full justify-between gap-8 flex relative max-sm:flex-col">
+          <div
+            class="w-full sm:w-1/2 min-h-fit sm:min-h-[80dvh] flex flex-col gap-5 py-6 px-4 sm:pl-20"
+          >
+            <h2 class="text-2xl sm:text-4xl Akria max-sm:text-center">
+             Why <span class="text-[#6DC642]">Tree Care</span> <br>
+              Matters
+            <p class="AvantLight leading-6 text-sm hidden sm:block mt-10">
+             Healthy, well-maintained trees reduce safety risks, enhance <br>
+              curb appeal, prevent costly damage, and create a clean, <br>
+               professional environment. From shaping to full seasonal <br>
+                maintenance, our certified crew ensures your landscape stays <br>
+                 safe, thriving, and visually stunning year-round.
+            </p>
+            <p class="AvantLight leading-6 text-sm text-center sm:hidden mt-5">
+             Healthy, well-maintained trees reduce safety risks, enhance
+              curb appeal, prevent costly damage, and create a clean,
+               professional environment. From shaping to full seasonal
+                maintenance, our certified crew ensures your landscape stays
+                 safe, thriving, and visually stunning year-round.
+            </p>
+          </div>
+          <div class="w-full sm:w-1/2 min-h-full relative">
+            <img
+              src="./assets/images/whyChoseleaf-3.png"
+              alt=""
+              class="w-28 absolute bottom-[15%] left-[-6%]"
+            />
+            <img
+              src="./assets/images/whychoseleaf-4.png"
+              alt=""
+              class="w-28 absolute bottom-[5%] left-[-6%]"
+            />
+            <div
+              class="absolute w-full h-[90%] transform -translate-y-1/2 top-1/2 right-0 rounded-tl-full rounded-bl-full bg-[#356020] z-[-1]"
+            ></div>
+            <div
+              class="w-[45%] sm:w-[60%] h-[50%] sm:h-[60dvh] relative ml-32 sm:ml-28 z-[10]"
+            >
+              <img
+                src="./assets/images/serviceWhy-1.png"
+                alt=""
+                class="w-full h-full object-fill"
+              />
+              <div
+                class="w-[60%] sm:w-[60%] h-[70%] absolute bottom-[-20%] left-[-24%] rounded-2xl overflow-hidden"
+              >
+                <img
+                  src="./assets/images/serviceWhy-2.png"
+                  alt=""
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TREE CARE -->
+      <div class="service w-full h-fit pt-20 py-8">
+        <h1 class="uppercase Akria text-2xl sm:text-4xl sm:pl-20 mb-5 max-sm:text-center">Tree Care</h1>
+        <div class="w-full flex items-start justify-center gap-6
+        max-sm:flex-col max-sm:items-center max-sm:px-4 pr-4">
+          <!-- images -->
+          <div class="relative w-[15%] h-[60vh] max-sm:hidden">
+            <img
+              class="absolute w-[50%] z-10"
+              src="./assets/images/servicepageleaf-1.png"
+              alt=""
+            />
+            <img
+              class="absolute w-[25%] top-40"
+              src="./assets/images/servicepagecirlce-1.png"
+            />
+            <img
+              class="absolute w-[25%] bottom-24 left-6"
+              src="./assets/images/servicepagecircle-2.png"
+              alt=""
+            />
+          </div>
+          <!-- card1 -->
+          <div
+            class="service-card w-full sm:w-[30%] rounded-2xl pb-5 transition-all duration-300"
+          >
+            <img
+              class="w-full h-[70dvh] object-cover mb-3 rounded-2xl"
+              src="./assets/images/tc-1.png"
+              alt=""
+            />
+            <div
+              class="card-content px-2 py-4 gap-3 flex flex-col justify-start items-start"
+            >
+              <h1
+                class="text-2xl sm:text-4xl AvantBold font-semibold text-[#0F0F0F]"
+              >
+                01.
+              </h1>
+              <h1 class="text-xl AvantBold text-[#0F0F0F]">Tree Trimming</h1>
+              <p class="AvantLight font-bold text-sm leading-6 text-[#0F0F0F]">
+                Maintain shape, remove hazards, and enhance growth. Our trimming
+                services keep trees balanced, safe, and visually appealing for
+                residential and commercial landscapes.
+              </p>
+            </div>
+          </div>
+          <!-- card2 -->
+          <div
+            class="service-card w-full sm:w-[15%] rounded-2xl pb-5 transition-all duration-300"
+          >
+            <img
+              class="w-full h-[70dvh] object-cover mb-3 rounded-2xl"
+              src="./assets/images/tc-2.png"
+              alt=""
+            />
+            <div
+              class="card-content px-2 py-4 sm:hidden gap-3 flex flex-col justify-start items-start"
+            >
+              <h1
+                class="text-2xl sm:text-4xl AvantBold font-semibold text-[#0F0F0F]"
+              >
+                02.
+              </h1>
+              <h1 class="text-xl AvantBold text-[#0F0F0F]">Tree Pruning</h1>
+              <p class="AvantLight font-bold text-sm leading-6 text-[#0F0F0F]">
+                Increase sunlight, airflow, and overall tree health. We remove
+                weak, diseased, or overcrowded branches to improve structure and
+                long-term stability.
+              </p>
+            </div>
+          </div>
+          <!-- card3 -->
+          <div
+            class="service-card w-full sm:w-[15%] rounded-2xl pb-5 transition-all duration-300"
+          >
+            <img
+              class="w-full h-[70dvh] object-cover mb-3 rounded-2xl"
+              src="./assets/images/tc-3.png"
+              alt=""
+            />
+            <div class="card-content px-2 py-4 sm:hidden gap-3 flex flex-col justify-start items-start">
+              <h1
+                class="text-2xl sm:text-4xl AvantBold fo gap-3 flex flex-col justify-start items-start font-semibold text-[#0F0F0F]"
+              >
+                03.
+              </h1>
+              <h1 class="text-xl AvantBold text-[#0F0F0F]">
+                Tree Shaping / Tree Topping
+              </h1>
+              <p class="AvantLight font-bold text-sm leading-6 text-[#0F0F0F]">
+                Precise shaping for aesthetic appeal and controlled growth.
+                Ideal for properties that need uniform appearance and improved
+                tree form.
+              </p>
+            </div>
+          </div>
+          <!-- card4 -->
+          <div
+            class="service-card w-full sm:w-[15%] rounded-2xl pb-5 transition-all duration-300"
+          >
+            <img
+              class="w-full h-[70dvh] object-cover mb-3 rounded-2xl"
+              src="./assets/images/tc-4.png"
+              alt=""
+            />
+            <div
+              class="card-content px-2 py-4 sm:hidden gap-3 flex flex-col justify-start items-start"
+            >
+              <h1
+                class="text-2xl sm:text-4xl AvantBold font-semibold text-[#0F0F0F]"
+              >
+                04.
+              </h1>
+              <h1 class="text-xl AvantBold text-[#0F0F0F]">Crown Reduction</h1>
+              <p class="AvantLight font-bold text-sm leading-6 text-[#0F0F0F]">
+                Safely reduce tree height and spread. Helps minimize storm risks
+                and protects nearby structures while maintaining tree health.
+              </p>
+            </div>
+          </div>
+          <!-- card5 -->
+          <div
+            class="service-card w-full sm:w-[15%] rounded-2xl pb-5 transition-all duration-300"
+          >
+            <img
+              class="w-full h-[70dvh] object-cover mb-3 rounded-2xl"
+              src="./assets/images/tc-5.png"
+              alt=""
+            />
+            <div
+              class="card-content px-2 py-4 sm:hidden gap-3 flex flex-col justify-start items-start"
+            >
+              <h1
+                class="text-2xl sm:text-4xl AvantBold font-semibold text-[#0F0F0F]"
+              >
+                05.
+              </h1>
+              <h1 class="text-xl AvantBold text-[#0F0F0F]">Tree Planting</h1>
+              <p class="AvantLight font-bold text-sm leading-6 text-[#0F0F0F]">
+                Professional planting services for residential and commercial
+                properties. We help select the right species, ensure proper
+                placement, and guide long-term care.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+ <div class="service w-full h-fit pt-20 py-8">
+      <div class="w-full flex justify-end px-4 sm:px-20">
+  <h1 class="w-fit uppercase Akria text-2xl sm:text-4xl mb-5 max-sm:text-center">
+          MAINTENANCE <br> SERVICES</h1>
+      </div>
+        <div class="w-full flex items-start justify-between gap-6
+        max-sm:flex-col-reverse max-sm:items-center max-sm:px-4 pl-4">
+          <!-- card4 -->
+          <div
+            class="service-card w-full sm:w-[15%] rounded-2xl pb-5 transition-all duration-300"
+          >
+            <img
+              class="w-full h-[70dvh] object-cover mb-3 rounded-2xl"
+              src="./assets/images/newM-4.png"
+              alt=""
+            />
+            <div
+              class="card-content px-2 py-4 sm:hidden gap-3 flex flex-col justify-start items-start"
+            >
+              <h1
+                class="text-2xl sm:text-4xl AvantBold font-semibold text-[#0F0F0F]"
+              >
+                04.
+              </h1>
+              <h1 class="text-xl AvantBold text-[#0F0F0F]">Deadwood Removal</h1>
+              <p class="AvantLight font-bold text-sm leading-6 text-[#0F0F0F]">
+                Remove dangerous dead branches before <br>
+                 they fall. Improves safety, prevents <br>
+                  property damage, and promotes healthier <br>
+                   tree growth.
+              </p>
+            </div>
+          </div>
+          <!-- card3 -->
+          <div
+            class="service-card w-full sm:w-[15%] rounded-2xl pb-5 transition-all duration-300"
+          >
+            <img
+              class="w-full h-[70dvh] object-cover mb-3 rounded-2xl"
+              src="./assets/images/newM-3.png"
+              alt=""
+            />
+            <div class="card-content px-2 py-4 sm:hidden gap-3 flex flex-col justify-start items-start">
+              <h1
+                class="text-2xl sm:text-4xl AvantBold fo gap-3 flex flex-col justify-start items-start font-semibold text-[#0F0F0F]"
+              >
+                03.
+              </h1>
+              <h1 class="text-xl AvantBold text-[#0F0F0F]">
+               Hedge Trimming
+              </h1>
+              <p class="AvantLight font-bold text-sm leading-6 text-[#0F0F0F]">
+               Clean, uniform, and professional hedge <br>
+               shaping. Perfect for property lines, <br>
+                entryways, and landscapes requiring <br>
+                 polished appearance.
+              </p>
+            </div>
+          </div>
+          <!-- card2 -->
+          <div
+            class="service-card w-full sm:w-[15%] rounded-2xl pb-5 transition-all duration-300"
+          >
+            <img
+              class="w-full h-[70dvh] object-cover mb-3 rounded-2xl"
+              src="./assets/images/newM-2.png"
+              alt=""
+            />
+            <div
+              class="card-content px-2 py-4 sm:hidden gap-3 flex flex-col justify-start items-start"
+            >
+              <h1
+                class="text-2xl sm:text-4xl AvantBold font-semibold text-[#0F0F0F]"
+              >
+                02.
+              </h1>
+              <h1 class="text-xl AvantBold text-[#0F0F0F]">Tree Health & Maintenance</h1>
+              <p class="AvantLight font-bold text-sm leading-6 text-[#0F0F0F]">
+               Ongoing professional care for strong, <br>
+                healthy trees. Includes assessments, <br> 
+                seasonal care, disease inspection, <br>
+                 and long-term health planning.
+              </p>
+            </div>
+          </div>
+          <!-- card1 -->
+          <div
+            class="service-card w-full sm:w-[30%] rounded-2xl pb-5 transition-all duration-300"
+          >
+            <img
+              class="w-full h-[70dvh] object-cover mb-3 rounded-2xl"
+              src="./assets/images/newM-1.png"
+              alt=""
+            />
+            <div
+              class="card-content px-2 py-4 gap-3 flex flex-col justify-start items-start"
+            >
+              <h1
+                class="text-2xl sm:text-4xl AvantBold font-semibold text-[#0F0F0F]"
+              >
+                01.
+              </h1>
+              <h1 class="text-xl AvantBold text-[#0F0F0F]">Crown Thinning</h1>
+              <p class="AvantLight font-bold text-sm leading-6 text-[#0F0F0F]">
+               Improve airflow and reduce canopy density <br>
+               Reduces wind resistance and prevents limb <br>
+                breakage during storms.
+              </p>
+            </div>
+          </div>
+          <!-- images -->
+          <div class="relative w-[15%] h-[60vh] max-sm:hidden">
+            <img
+              class="absolute w-[60%] top-1/2 right-0"
+              src="./assets/images/mwp-3.png"
+              alt=""
+            />
+            <img
+              class="absolute w-[25%] top-[40%] right-0"
+              src="./assets/images/mwp-2.png"
+            />
+            <img
+              class="absolute w-[25%] top-[20%] right-4"
+              src="./assets/images/mwp-1.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!-- BANNER -->
+      <div
+        class="relative section4 w-full py-8 sm:py-14 mt-12 sm:mt-7 flex items-center justify-center"
+      >
+        <img
+          class="absolute -top-16 -left-1 z-10 sm:w-[12%] w-[30%]"
+          src="./assets/images/bannerleafimage.png"
+          alt=""
+        />
+        <div
+          class="relative bg-[#6DC642] w-[93%] py-8 sm:py-16 flex flex-col sm:flex-row text-center pl-5 rounded-2xl"
+        >
+          <div class="w-fit h-fit flex flex-col gap-5 items-center">
+            <h1 class="text-white text-xl sm:text-4xl Akria">
+              24/7 Emergency <br />
+              Response Available
+            </h1>
+            <p class="text-white AvantLight text-sm px-5 sm:px-0">
+              Immediate dispatch for fallen trees, storm damage, and hazards.
+            </p>
+            <button
+              class="py-2 w-fit bg-[#356020] AvantBold text-white px-6 rounded-b-2xl rounded-tl-2xl hover:bg-white hover:text-[#356020] transition ease-in duration-150 cursor-pointer"
+            >
+              Call (805)535-3739
+            </button>
+          </div>
+          <img
+            class="sm:absolute w-full sm:w-[55%] -right-5 -bottom-[72px] pt-5 sm:pt-0"
+            src="./assets/images/banner-1.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <!-- FEATURED WORK -->
+      <div
+        class="relative section5 py-5 sm:py-10 w-full -z-20 gap-5 flex flex-col justify-center overflow-hidden"
+      >
+        <img
+          class="absolute w-[55%] -z-10 sm:left-0 top-16 sm:top-0"
+          src="./assets/images/bggreen.png"
+          alt=""
+        />
+        <img
+          class="absolute -right-1 w-[22%] sm:w-[15%] top-7"
+          src="./assets/images/fwLeaf.png"
+          alt=""
+        />
+        <h1 class="text-black sm:text-white Akria text-2xl sm:text-4xl pl-12">
+          featured work
+        </h1>
+
+        <div class="flex flex-col gap-5">
+          <div class="flex gap-6">
+            <img
+              class="w-[35%] sm:w-[28%]"
+              src="./assets/images/fw-1.png"
+              alt=""
+            />
+            <img
+              class="w-[35%] sm:w-[28%]"
+              src="./assets/images/fw-2.png"
+              alt=""
+            />
+            <img
+              class="w-[28%] max-sm:hidden"
+              src="./assets/images/fw-3.png"
+              alt=""
+            />
+          </div>
+          <div class="flex gap-6 items-center justify-end">
+            <img
+              class="w-[35%] sm:w-[28%]"
+              src="./assets/images/fw-4.png"
+              alt=""
+            />
+            <img
+              class="w-[35%] sm:w-[29%]"
+              src="./assets/images/fw-5.png"
+              alt=""
+            />
+            <img
+              class="w-[27%] max-sm:hidden"
+              src="./assets/images/fw-6.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <!-- CLIENT REVIEWS -->
+      <div
+        class="section6 h-fit py-20 w-full flex flex-col sm:flex-row px-5 sm:px-16 -z-10"
+      >
+        <div class="w-full sm:w-[50%] flex flex-col gap-5">
+          <div class="flex flex-col sm:flex-row w-full items-center gap-10">
+            <h1
+              class="h-[#0F0F0F] Akria text-2xl sm:text-4xl font-bold text-center sm:text-start"
+            >
+              CLIENT <br />
+              REVIEWS
+            </h1>
+            <img
+              class="w-[40%] sm:w-[27%]"
+              src="./assets/svg/Angi.svg"
+              alt=""
+            />
+          </div>
+          <p class="AvantLight text-sm text-[#0F0F0F]">
+            Our clients consistently highlight our fast response times, <br />
+            professional crew, and high-quality results. From homeowners <br />
+            to large commercial property managers, we’re trusted across <br />
+            Los Angeles and Orange County for reliable, safe, and <br />
+            efficient tree services.
+          </p>
+          <button
+            class="bg-[#6DC642] py-2 px-4 w-fit h-fit rounded-b-2xl rounded-tl-2xl AvantBold text-white hover:bg-white/70 hover:border-2 hover:border-[#0F0F0F] hover:text-[#356020] transition-all delay-100 cursor-pointer"
+          >
+            Book an Appointment
+          </button>
+        </div>
+
+        <!-- slideer -->
+        <div class="sm:w-[50%] w-full pt-10 z-0">
+          <div class="swiper mySwiper relative">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="bg-white" src="./assets/svg/Reviews.svg" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img class="bg-white" src="./assets/svg/Reviews.svg" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img class="bg-white" src="./assets/svg/Reviews.svg" alt="" />
+              </div>
+            </div>
+            <div
+              class="swiper-button-next rounded-full w-10 h-10 pl-5 text-transparent bg-[#6DC642] flex items-center justify-center absolute top-30 right-0"
+            >
+              <img src="./assets/images/reviewArrow-2.png" alt="" />
+            </div>
+            <div
+              class="swiper-button-prev rounded-full w-10 h-10 pl-5 text-transparent bg-[#6DC642] flex items-center justify-center absolute top-30 left-0"
+            >
+              <img src="./assets/images/reviewArrow1.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div
+        class="relative footer w-full flex items-center justify-center text-white AvantLight pt-0 sm:pt-10"
+      >
+        <img
+          class="absolute w-[20%] sm:w-[12%] left-0 -top-10 sm:-top-18 z-20"
+          src="./assets/images/footerleaf-1.png"
+          alt=""
+        />
+        <img
+          class="absolute w-[10%] bottom-0 right-0"
+          src="./assets/images/footerleaf-2.png"
+          alt=""
+        />
+        <div
+          class="bg-[#356020] w-full max-sm:px-4 sm:w-[90%] h-full rounded-t-[20px] sm:rounded-t-[100px] pb-6"
+        >
+          <!-- footertop -->
+          <div
+            class="footertop h-fit w-full flex flex-col sm:flex-row items-center sm:items-end justify-between sm:pt-20 pt-5"
+          >
+            <img
+              class="w-[50%] sm:w-[25%] pl-0 sm:pl-20"
+              src="./assets/images/footerlogo.png"
+              alt="logo"
+            />
+            <div
+              class="w-full sm:w-[65%] flex flex-wrap pt-10 sm:pt-0 gap-8 sm:gap-5 justify-between pr-5 text-sm font-semibold"
+            >
+              <div class="flex flex-col gap-2">
+                <h1 class="uppercase AvantBold">Quick Links</h1>
+                <h2>About Us</h2>
+                <h2>Why Choose Us</h2>
+                <h2>Gallery</h2>
+                <h2>Contact Us</h2>
+              </div>
+              <div class="flex flex-col gap-2">
+                <h1 class="uppercase AvantBold">SERVICE AREAS</h1>
+                <h2>Los Angeles County</h2>
+                <h2>Orange County</h2>
+                <h2>Irvine</h2>
+                <h2>Surrounding Cities</h2>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="flex gap-2">
+                  <img class="w-[7%]" src="./assets/svg/phone.svg" alt="" />
+                  <h1 class="text-lg">(805)535-3739</h1>
+                </div>
+                <div class="flex gap-2">
+                  <img class="w-[7%]" src="./assets/svg/phone.svg" alt="" />
+                  <h1 class="text-lg">(805) 501-6923</h1>
+                </div>
+                <div class="flex gap-2">
+                  <img class="w-[7%]" src="./assets/svg/clock.svg" alt="" />
+                  <span class="leading-tight">
+                    <h1>
+                      <span class="uppercase AvantBold">24/7 </span>Emergency
+                    </h1>
+                    <h1>Response Available</h1>
+                  </span>
+                </div>
+                <div class="flex gap-2">
+                  <img class="w-[7%]" src="./assets/svg/email.svg" alt="" />
+                  <h1 class="AvantLight font-lg font-semibold">
+                    info@jaysonstreeservice.com
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- footermiddle -->
+          <div
+            class="w-full flex flex-col sm:flex-row items-start items-center text-center sm:justify-between sm:px-10 py-10 gap-10 text-sm"
+          >
+            <div class="text-center">
+              <h1 class="AvantBold">
+                Professional Commercial & <br />
+                Residential Tree Care
+              </h1>
+              <p>
+                Serving Los Angeles & Orange County <br />
+                • 24/7 Emergency Response
+              </p>
+            </div>
+            <div>
+              <h1 class="AvantBold">Ready to schedule your service?</h1>
+              <p class="hidden sm:block">
+                Book your free estimate and get fast, reliable tree care <br />
+                for your home or commercial property.
+              </p>
+              <p class="sm:hidden block">
+                Book your free estimate and get fast, reliable tree care for
+                your home or commercial property.
+              </p>
+            </div>
+            <button
+              class="bg-[#6DC642] py-2 px-4 w-fit h-fit rounded-b-full rounded-tl-full AvantBold hover:bg-white/70 hover:border-2 hover:border-[#0F0F0F] hover:text-[#356020] transition-all delay-100 cursor-pointer"
+            >
+              Book an Appointment
+            </button>
+          </div>
+
+          <!-- footerbottom -->
+          <div
+            class="w-full flex flex-col sm:flex-row text-center justify-between text-xs sm:px-20"
+          >
+            <p>Privacy Policy | Your Privacy Choices</p>
+            <p>
+              © 2025 JAYSON'S TREE SERVICE . All Rights Reserved.
+              <span class="text-[#6DC642]">Web Design</span> By Latin Branding
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const menuOpenBtn = document.getElementById("HamMenuOpen");
+      const menuCloseBtn = document.getElementById("HamMenuClose");
+      const menu = document.getElementById("menu");
+
+      menuOpenBtn.addEventListener("click", () => {
+        menu.classList.add("flex");
+        menu.classList.remove("hidden");
+      });
+
+      menuCloseBtn.addEventListener("click", () => {
+        menu.classList.remove("flex");
+        menu.classList.add("hidden");
+      });
+
+      var swiper = new Swiper(".mySwiper", {
+        rewind: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      const cards = document.querySelectorAll(".service-card");
+
+function setupCardClicks() {
+
+  cards.forEach((card) => {
+    // Pehle purana listener hatao taake duplicate na bane
+    card.replaceWith(card.cloneNode(true));
+  });
+
+  // dubara naya nodelist lo (kyunki clone kia hai)
+  const freshCards = document.querySelectorAll(".service-card");
+
+  if (window.innerWidth >= 624) {
+    freshCards.forEach((card) => {
+      card.addEventListener("click", () => {
+        // Sab cards ko collapse karo
+        freshCards.forEach((c) => {
+          c.classList.remove("!w-[30%]");
+          c.classList.add("!w-[15%]");
+
+          const content = c.querySelector(".card-content");
+          if (content) content.style.display = "none";
+        });
+
+        // Click wala expand karo
+        card.classList.remove("!w-[15%]");
+        card.classList.add("!w-[30%]");
+
+        const currentContent = card.querySelector(".card-content");
+        if (currentContent) currentContent.style.display = "block";
+      });
+    });
+  } else {
+    console.log("Mobile function disabled on larger screens");
+  }
+}
+
+// Page load par run
+setupCardClicks();
+
+// Resize hone par bhi run (important)
+window.addEventListener("resize", setupCardClicks);
+
+    </script>
+  </body>
+</html>
