@@ -5,7 +5,7 @@ import whyLeaf2 from "../../Jasons Tree/assets/images/whychoseleaf-4.png";
 import leafIcon from "../../Jasons Tree/assets/svg/mobildeMenuLeafsvg.svg";
 
 const WhyChooseSection = ({ heading, highlighted, bodyDesktop, bodyMobile, imageMain, imageOverlay, bulletItems }) => (
-  <div className="w-full min-h-screen pt-16 sm:pt-40 pb-6 relative">
+  <div className="w-full min-h-screen pt-16 sm:pt-[120px] pb-0 relative">
     <img src={lastLeaf} alt="" className="w-28 sm:w-44 absolute top-[0%] sm:top-[-22%] right-0" />
     <img src={leafTwo} alt="" className="w-28 absolute top-[38%] left-0" />
     <div className="w-full justify-between gap-8 flex relative max-sm:flex-col">

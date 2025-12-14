@@ -35,7 +35,7 @@ const coreServices = [
 ];
 
 const CoreServices = () => (
-  <div className="section_3 w-full overflow-hidden pt-20">
+  <div className="section_3 w-full overflow-hidden pt-0">
     <div className="relative w-full flex flex-col gap-3 justify-center items-center pb-10 sm:pb-28 text-center">
       <img
         className="absolute w-[20%] sm:w-[12%] top-16 sm:top-10 sm:-top-7 -left-5 sm:left-36"

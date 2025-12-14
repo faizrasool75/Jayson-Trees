@@ -14,7 +14,7 @@ const Footer = () => (
     />
     <img className="absolute w-[10%] bottom-0 right-0" src={footerLeaf2} alt="" />
     <div className="bg-[#356020] w-full max-sm:px-4 sm:w-[90%] h-full rounded-t-[20px] sm:rounded-t-[100px] pb-6">
-      <div className="footertop h-fit w-full flex flex-col sm:flex-row items-center sm:items-end justify-between sm:pt-20 pt-5">
+      <div className="footertop h-fit w-full flex flex-col sm:flex-row items-center sm:items-end justify-between pt-[25px] sm:pt-[25px]">
         <img className="w-[50%] sm:w-[25%] pl-0 sm:pl-20" src={footerLogo} alt="Logo" />
         <div className="w-full sm:w-[65%] flex flex-wrap pt-10 sm:pt-0 gap-8 sm:gap-5 justify-between pr-5 text-sm font-semibold">
           <div className="flex flex-col gap-2">

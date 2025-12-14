@@ -2,7 +2,7 @@ import bannerLeaf from "../../Jasons Tree/assets/images/bannerleafimage.png";
 import bannerImage from "../../Jasons Tree/assets/images/banner-1.png";
 
 const Banner = () => (
-  <div className="relative section4 w-full py-8 sm:py-14 mt-12 sm:mt-7 flex items-center justify-center">
+  <div className="relative section4 w-full pt-[80px] pb-[80px] mt-12 sm:pt-[80px] sm:pb-[80px] sm:mt-7 flex items-center justify-center">
     <img
       className="absolute -top-16 -left-1 z-10 sm:w-[12%] w-[30%]"
       src={bannerLeaf}
