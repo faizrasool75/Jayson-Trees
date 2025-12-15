@@ -5,7 +5,8 @@ import leafIcon from "../../Jasons Tree/assets/svg/mobildeMenuLeafsvg.svg";
 
 const navLeft = [
   { label: "Home", key: "home" },
-  { label: "Why Choose Us", key: "why-us" },
+  { label: "About Us", key: "about" },
+  { label: "Why Choose Us", key: "why-choose-us" },
 ];
 
 const navRight = [
@@ -18,13 +19,14 @@ const Header = ({ onNavigate, onMenuToggle, isMenuOpen, activeSection = "home" }
   const location = useLocation();
 
   const renderLink = ({ label, key }) => {
-    // Check if this specific item is active
-    const isActive = activeSection === key || 
-                    (key === "services" && location.pathname === "/services");
-    
+    const pathHref = key === "home" ? "/" : `/${key}`;
+    const isActive =
+      activeSection === key ||
+      (key === "services" && location.pathname === "/services");
+
     return (
       <a
-        href={`#${key}`}
+        href={pathHref}
         onClick={(event) => {
           event.preventDefault();
           onNavigate?.(key);
@@ -60,7 +62,7 @@ const Header = ({ onNavigate, onMenuToggle, isMenuOpen, activeSection = "home" }
         ))}
       </div>
       <a 
-        href="#home"
+        href="/"
         onClick={(event) => {
           event.preventDefault();
           onNavigate?.("home");

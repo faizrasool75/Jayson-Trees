@@ -6,7 +6,12 @@ const ContactForm = () => {
     name: "",
     email: "",
     phone: "",
+    propertyType: "",
+    city: "",
     service: "",
+    preferredDate: "",
+    preferredTime: "",
+    photo: null,
     message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -34,10 +39,14 @@ const ContactForm = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     
-    // Clear error for this field when user starts typing
     if (errors[name]) {
       setErrors({ ...errors, [name]: "" });
     }
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0] || null;
+    setFormData({ ...formData, photo: file });
   };
 
   const validateForm = () => {
@@ -75,6 +84,22 @@ const ContactForm = () => {
       newErrors.service = "Please select a service";
     }
 
+    if (!formData.propertyType) {
+      newErrors.propertyType = "Please select a property type";
+    }
+
+    if (!formData.city) {
+      newErrors.city = "Please select a city or area";
+    }
+
+    if (!formData.preferredDate) {
+      newErrors.preferredDate = "Pick a preferred date";
+    }
+
+    if (!formData.preferredTime) {
+      newErrors.preferredTime = "Pick a preferred time";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -94,7 +119,12 @@ const ContactForm = () => {
         name: "",
         email: "",
         phone: "",
+        propertyType: "",
+        city: "",
         service: "",
+        preferredDate: "",
+        preferredTime: "",
+        photo: null,
         message: "",
       });
       setIsSubmitted(false);
@@ -144,7 +174,7 @@ const ContactForm = () => {
               </div>
               
               <p className="AvantLight text-base sm:text-lg leading-7 text-[#2C2C2C] font-medium">
-                Ready to transform your landscape? Fill out the form and our expert team will contact you within 24 hours to schedule your free estimate.
+                Ready to transform your landscape? Fill out the form and our expert team will contact you within 24 hours to schedule your free estimate for Los Angeles County tree service.
               </p>
 
               <div className="flex flex-col gap-4 mt-4">
@@ -233,6 +263,54 @@ const ContactForm = () => {
                   </div>
                 </div>
 
+                <div className="flex flex-col sm:flex-row gap-5">
+                  <div className="flex-1">
+                    <label htmlFor="propertyType" className="AvantBold text-sm text-[#0F0F0F] block mb-2">
+                      Property Type *
+                    </label>
+                    <select
+                      id="propertyType"
+                      name="propertyType"
+                      value={formData.propertyType}
+                      onChange={handleChange}
+                      required
+                      className={`w-full px-4 py-3 border-2 rounded-lg focus:border-[#6DC642] focus:outline-none transition-colors duration-300 AvantLight bg-white ${
+                        errors.propertyType ? "border-red-500" : "border-gray-200"
+                      }`}
+                    >
+                      <option value="">Select property type</option>
+                      <option value="residential">Residential</option>
+                      <option value="commercial">Commercial</option>
+                    </select>
+                    {errors.propertyType && (
+                      <p className="text-red-500 text-xs mt-1 AvantLight">{errors.propertyType}</p>
+                    )}
+                  </div>
+                  <div className="flex-1">
+                    <label htmlFor="city" className="AvantBold text-sm text-[#0F0F0F] block mb-2">
+                      City / Area *
+                    </label>
+                    <select
+                      id="city"
+                      name="city"
+                      value={formData.city}
+                      onChange={handleChange}
+                      required
+                      className={`w-full px-4 py-3 border-2 rounded-lg focus:border-[#6DC642] focus:outline-none transition-colors duration-300 AvantLight bg-white ${
+                        errors.city ? "border-red-500" : "border-gray-200"
+                      }`}
+                    >
+                      <option value="">Select area</option>
+                      <option value="la-county">Los Angeles County</option>
+                      <option value="orange-county">Orange County</option>
+                      <option value="irvine">Irvine</option>
+                    </select>
+                    {errors.city && (
+                      <p className="text-red-500 text-xs mt-1 AvantLight">{errors.city}</p>
+                    )}
+                  </div>
+                </div>
+
                 <div>
                   <label htmlFor="email" className="AvantBold text-sm text-[#0F0F0F] block mb-2">
                     Email Address *
@@ -269,16 +347,87 @@ const ContactForm = () => {
                     }`}
                   >
                     <option value="">Select a service</option>
-                    <option value="tree-trimming">Tree Trimming</option>
-                    <option value="tree-removal">Tree Removal</option>
-                    <option value="tree-pruning">Tree Pruning</option>
-                    <option value="stump-grinding">Stump Grinding</option>
-                    <option value="palm-care">Palm Tree Care</option>
-                    <option value="emergency">Emergency Service</option>
+                    <optgroup label="Tree Care & Maintenance">
+                      <option value="tree-trimming">Tree Trimming</option>
+                      <option value="tree-pruning">Tree Pruning</option>
+                      <option value="crown-reduction">Crown Reduction / Thinning</option>
+                      <option value="tree-health">Tree Health & Maintenance</option>
+                    </optgroup>
+                    <optgroup label="Removal, Clearing & Cleanups">
+                      <option value="tree-removal">Tree Removal</option>
+                      <option value="stump-grinding">Stump Removal / Grinding</option>
+                      <option value="lot-clearing">Lot / Land Clearing</option>
+                      <option value="storm-cleanup">Storm Damage Cleanup</option>
+                    </optgroup>
+                    <optgroup label="Special & Commercial">
+                      <option value="palm-tree">Palm Tree Trimming / Skinning</option>
+                      <option value="commercial-tree">Commercial Tree Maintenance</option>
+                      <option value="emergency">Emergency Tree Service LA</option>
+                      <option value="fire-protection">Fire Protection Cleanups</option>
+                    </optgroup>
                     <option value="other">Other</option>
                   </select>
                   {errors.service && (
                     <p className="text-red-500 text-xs mt-1 AvantLight">{errors.service}</p>
+                  )}
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-5">
+                  <div className="flex-1">
+                    <label htmlFor="preferredDate" className="AvantBold text-sm text-[#0F0F0F] block mb-2">
+                      Preferred Date *
+                    </label>
+                    <input
+                      type="date"
+                      id="preferredDate"
+                      name="preferredDate"
+                      value={formData.preferredDate}
+                      onChange={handleChange}
+                      required
+                      className={`w-full px-4 py-3 border-2 rounded-lg focus:border-[#6DC642] focus:outline-none transition-colors duration-300 AvantLight ${
+                        errors.preferredDate ? "border-red-500" : "border-gray-200"
+                      }`}
+                    />
+                    {errors.preferredDate && (
+                      <p className="text-red-500 text-xs mt-1 AvantLight">{errors.preferredDate}</p>
+                    )}
+                  </div>
+                  <div className="flex-1">
+                    <label htmlFor="preferredTime" className="AvantBold text-sm text-[#0F0F0F] block mb-2">
+                      Preferred Time *
+                    </label>
+                    <input
+                      type="time"
+                      id="preferredTime"
+                      name="preferredTime"
+                      value={formData.preferredTime}
+                      onChange={handleChange}
+                      required
+                      className={`w-full px-4 py-3 border-2 rounded-lg focus:border-[#6DC642] focus:outline-none transition-colors duration-300 AvantLight ${
+                        errors.preferredTime ? "border-red-500" : "border-gray-200"
+                      }`}
+                    />
+                    {errors.preferredTime && (
+                      <p className="text-red-500 text-xs mt-1 AvantLight">{errors.preferredTime}</p>
+                    )}
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="photo" className="AvantBold text-sm text-[#0F0F0F] block mb-2">
+                    Photo Upload (optional)
+                  </label>
+                  <input
+                    type="file"
+                    id="photo"
+                    name="photo"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    className="w-full px-4 py-3 border-2 border-dashed rounded-lg border-gray-200 focus:border-[#6DC642] focus:outline-none transition-colors duration-300 AvantLight bg-white file:mr-4 file:px-4 file:py-2 file:rounded-lg file:border-0 file:bg-[#6DC642] file:text-white file:font-bold file:cursor-pointer"
+                    aria-label="Upload a photo of the tree or property"
+                  />
+                  {formData.photo && (
+                    <p className="text-xs text-[#2C2C2C] mt-1 AvantLight">Selected: {formData.photo.name}</p>
                   )}
                 </div>
 

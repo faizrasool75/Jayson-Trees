@@ -42,28 +42,35 @@ const Footer = ({ onNavigate }) => (
           <div className="flex flex-col gap-2">
             <h1 className="uppercase AvantBold">Quick Links</h1>
             <a 
-              href="#about" 
+              href="/about" 
               onClick={(e) => { e.preventDefault(); onNavigate?.('about'); }}
               className="hover:text-[#6DC642] transition-all duration-300 hover:translate-x-2 cursor-pointer"
             >
               About Us
             </a>
             <a 
-              href="#why-us" 
-              onClick={(e) => { e.preventDefault(); onNavigate?.('why-us'); }}
+              href="/why-choose-us" 
+              onClick={(e) => { e.preventDefault(); onNavigate?.('why-choose-us'); }}
               className="hover:text-[#6DC642] transition-all duration-300 hover:translate-x-2 cursor-pointer"
             >
               Why Choose Us
             </a>
             <a 
-              href="#gallery" 
+              href="/services" 
+              onClick={(e) => { e.preventDefault(); onNavigate?.('services'); }}
+              className="hover:text-[#6DC642] transition-all duration-300 hover:translate-x-2 cursor-pointer"
+            >
+              Services
+            </a>
+            <a 
+              href="/gallery" 
               onClick={(e) => { e.preventDefault(); onNavigate?.('gallery'); }}
               className="hover:text-[#6DC642] transition-all duration-300 hover:translate-x-2 cursor-pointer"
             >
               Gallery
             </a>
             <a 
-              href="#contact" 
+              href="/contact" 
               onClick={(e) => { e.preventDefault(); onNavigate?.('contact'); }}
               className="hover:text-[#6DC642] transition-all duration-300 hover:translate-x-2 cursor-pointer"
             >
@@ -86,11 +93,11 @@ const Footer = ({ onNavigate }) => (
               <h1 className="text-lg">(805) 535-3739</h1>
             </a>
             <a 
-              href="tel:+18055016923" 
+              href="tel:+13237933516" 
               className="flex gap-2 items-center hover:text-[#6DC642] transition-all duration-300 hover:scale-105 cursor-pointer group"
             >
               <img className="w-[7%] transition-transform duration-300 group-hover:rotate-12" src={phoneIcon} alt="Phone" />
-              <h1 className="text-lg">(805) 501-6923</h1>
+              <h1 className="text-lg">(323) 793-3516</h1>
             </a>
             <div className="flex gap-2">
               <img className="w-[7%]" src={clockIcon} alt="Clock" />

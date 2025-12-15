@@ -5,49 +5,13 @@ import MobileMenu from "./MobileMenu";
 import ScrollProgress from "./ScrollProgress";
 import ScrollToTop from "./ScrollToTop";
 
-const sectionIds = {
-  home: "home",
-  about: "about",
-  "why-us": "why-us",
-  gallery: "gallery",
-  contact: "contact-form",
-};
-
-const scrollToSection = (target) => {
-  // For contact, scroll to contact-form and trigger highlight
-  if (target === "contact") {
-    const formElement = document.getElementById("contact-form");
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: "smooth", block: "center" });
-      window.dispatchEvent(new Event('highlightContactForm'));
-      return;
-    }
-  }
-  
-  // For why-us, try to find the marker first, fallback to about section
-  if (target === "why-us") {
-    const whyUsElement = document.getElementById("why-us");
-    if (whyUsElement) {
-      whyUsElement.scrollIntoView({ behavior: "smooth", block: "start" });
-      return;
-    }
-    // Fallback to about section
-    const aboutElement = document.getElementById("about");
-    if (aboutElement) {
-      aboutElement.scrollIntoView({ behavior: "smooth", block: "start" });
-      return;
-    }
-  }
-  
-  const id = sectionIds[target];
-  if (!id) {
-    return;
-  }
-  const element =
-    typeof document !== "undefined" ? document.getElementById(id) : null;
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
+const routeMap = {
+  home: "/",
+  about: "/about",
+  "why-choose-us": "/why-choose-us",
+  services: "/services",
+  gallery: "/gallery",
+  contact: "/contact",
 };
 
 const Layout = () => {
@@ -61,37 +25,49 @@ const Layout = () => {
     setMenuOpen(false);
     setActiveSection(target);
 
-    // Handle Services page navigation
-    if (target === "services") {
-      if (location.pathname !== "/services") {
-        navigate("/services");
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+    if (target === "contact") {
+      if (location.pathname === "/") {
+        const formElement = document.getElementById("contact-form");
+        if (formElement) {
+          formElement.scrollIntoView({ behavior: "smooth", block: "center" });
+          window.dispatchEvent(new Event("highlightContactForm"));
+          return;
+        }
       }
+      if (location.pathname === "/contact") {
+        const formElement = document.getElementById("contact-form");
+        if (formElement) {
+          formElement.scrollIntoView({ behavior: "smooth", block: "center" });
+          window.dispatchEvent(new Event("highlightContactForm"));
+        }
+        return;
+      }
+      setPendingScrollTarget("contact-form");
+      navigate(routeMap[target]);
       return;
     }
 
-    // If we're on Services page and clicking other links, go to home first
-    if (location.pathname === "/services") {
-      setPendingScrollTarget(target);
-      navigate("/");
+    const nextRoute = routeMap[target] || "/";
+    if (location.pathname !== nextRoute) {
+      navigate(nextRoute);
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
 
-    // We're on home page, scroll to the section
-    scrollToSection(target);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
-    if (location.pathname === "/" && pendingScrollTarget) {
-      // Small delay to ensure page has loaded and DOM is ready
+    if (pendingScrollTarget && location.pathname === "/contact") {
       const timer = setTimeout(() => {
-        scrollToSection(pendingScrollTarget);
-        setActiveSection(pendingScrollTarget);
+        const element = document.getElementById(pendingScrollTarget);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "center" });
+          window.dispatchEvent(new Event("highlightContactForm"));
+        }
         setPendingScrollTarget(null);
       }, 300);
-      
+
       return () => clearTimeout(timer);
     }
   }, [location.pathname, pendingScrollTarget]);
@@ -100,71 +76,33 @@ const Layout = () => {
     setMenuOpen(false);
   }, [location.pathname]);
 
-  // Active section detection
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 150;
-      
-      // Check sections from bottom to top
-      const sections = [
-        { id: "contact", key: "contact" },
-        { id: "gallery", key: "gallery" },
-        { id: "why-us", key: "why-us" },
-        { id: "home", key: "home" },
-      ];
-      
-      for (const section of sections) {
-        const element = document.getElementById(section.id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const elementTop = window.scrollY + rect.top;
-          
-          if (scrollPosition >= elementTop) {
-            setActiveSection(section.key);
-            return;
-          }
-        }
-      }
-      
+    const path = location.pathname;
+    if (path === "/") {
       setActiveSection("home");
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (location.pathname === "/services") {
-      setActiveSection("services");
-    } else if (location.pathname === "/") {
-      // Re-detect active section on home page
-      const handleScroll = () => {
-        const scrollPosition = window.scrollY + 150;
-        const sections = [
-          { id: "contact", key: "contact" },
-          { id: "gallery", key: "gallery" },
-          { id: "why-us", key: "why-us" },
-          { id: "home", key: "home" },
-        ];
-        
-        for (const section of sections) {
-          const element = document.getElementById(section.id);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            const elementTop = window.scrollY + rect.top;
-            
-            if (scrollPosition >= elementTop) {
-              setActiveSection(section.key);
-              return;
-            }
-          }
-        }
-        setActiveSection("home");
-      };
-      handleScroll();
+      return;
     }
+    if (path.startsWith("/about")) {
+      setActiveSection("about");
+      return;
+    }
+    if (path.startsWith("/why-choose-us")) {
+      setActiveSection("why-choose-us");
+      return;
+    }
+    if (path.startsWith("/services")) {
+      setActiveSection("services");
+      return;
+    }
+    if (path.startsWith("/gallery")) {
+      setActiveSection("gallery");
+      return;
+    }
+    if (path.startsWith("/contact")) {
+      setActiveSection("contact");
+      return;
+    }
+    setActiveSection("home");
   }, [location.pathname]);
 
   useEffect(() => {

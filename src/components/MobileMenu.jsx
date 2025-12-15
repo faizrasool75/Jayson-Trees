@@ -10,10 +10,12 @@ const MobileMenu = ({ isOpen, onClose, onNavigate, activeSection = "home" }) => 
   const location = useLocation();
 
   const navItems = [
-    { label: "Why Choose us", key: "why-us" },
+    { label: "Home", key: "home" },
+    { label: "About Us", key: "about" },
+    { label: "Why Choose Us", key: "why-choose-us" },
     { label: "Services", key: "services" },
     { label: "Gallery", key: "gallery" },
-    { label: "Contact us", key: "contact" },
+    { label: "Contact Us", key: "contact" },
   ];
 
 
@@ -86,16 +88,18 @@ const MobileMenu = ({ isOpen, onClose, onNavigate, activeSection = "home" }) => 
         <div className="flex flex-col justify-start items-start gap-6 pl-4">
           {navItems.map((item, index) => {
             // Check if this menu item is active
-            const isActive = activeSection === item.key || 
-                           (item.key === "services" && location.pathname === "/services");
+            const isActive =
+              activeSection === item.key ||
+              (item.key === "services" && location.pathname === "/services");
             
             return (
               <a
                 key={item.label}
-                href={`#${item.key}`}
+                href={item.key === "home" ? "/" : `/${item.key}`}
                 onClick={(event) => {
                   event.preventDefault();
                   onNavigate?.(item.key);
+                  onClose();
                 }}
                 className={`AvantLight text-2xl text-white flex justify-start items-center gap-3 hover:text-[#6DC642] hover:translate-x-2 transition-all duration-300 ${
                   isAnimating ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
