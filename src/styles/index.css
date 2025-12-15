@@ -165,53 +165,51 @@ h1, h2, h3, h4, h5, h6 {
 
 .review-slider {
   position: relative;
-  min-height: 220px;
-  overflow: visible;
+  min-height: 300px;
+  overflow: hidden;
 }
 
 .review-slide {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transform: translateX(100%);
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: translateX(100%) scale(0.95);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.4s ease,
+              filter 0.4s ease;
   pointer-events: none;
+  filter: blur(5px);
 }
 
 .review-slide.active {
   position: relative;
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0) scale(1);
   pointer-events: auto;
   z-index: 2;
+  filter: blur(0);
 }
 
 .review-slide.prev {
   opacity: 0;
-  transform: translateX(-100%);
+  transform: translateX(-100%) scale(0.95);
+  filter: blur(5px);
 }
 
 .review-slide.next {
   opacity: 0;
-  transform: translateX(100%);
+  transform: translateX(100%) scale(0.95);
+  filter: blur(5px);
 }
 
 .swiper-button-prev,
 .swiper-button-next {
-  top: 50%;
-  transform: translateY(-50%);
   position: absolute;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-}
-.swiper-button-prev {
-  left: -24px;
-}
-.swiper-button-next {
-  right: -24px;
 }
 
 .scroll-to-top {
@@ -402,11 +400,17 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 640px) {
   .swiper-button-prev {
-    left: -18px;
+    left: 8px !important;
   }
 
   .swiper-button-next {
-    right: -18px;
+    right: 8px !important;
+  }
+  
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 40px !important;
+    height: 40px !important;
   }
 }
 
@@ -627,5 +631,6 @@ header {
   background-size: 1000px 100%;
   animation: shimmer 3s infinite;
 }
+
 
 
