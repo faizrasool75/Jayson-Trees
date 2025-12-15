@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import leafIcon from "../../Jasons Tree/assets/svg/mobildeMenuLeafsvg.svg";
 
 const ContactForm = () => {
@@ -11,6 +11,24 @@ const ContactForm = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [isHighlighted, setIsHighlighted] = useState(false);
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    const handleHighlight = () => {
+      formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setIsHighlighted(true);
+      setTimeout(() => {
+        setIsHighlighted(false);
+      }, 2000);
+    };
+
+    window.addEventListener('highlightContactForm', handleHighlight);
+    
+    return () => {
+      window.removeEventListener('highlightContactForm', handleHighlight);
+    };
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -85,7 +103,13 @@ const ContactForm = () => {
   };
 
   return (
-    <div id="contact-form" className="w-full py-16 sm:py-24 px-4 sm:px-16 bg-transparent relative z-50">
+    <div 
+      id="contact-form" 
+      ref={formRef}
+      className={`w-full py-16 sm:py-24 px-4 sm:px-16 bg-transparent relative z-50 transition-all duration-500 ${
+        isHighlighted ? 'ring-4 ring-[#6DC642] ring-offset-8 rounded-3xl' : ''
+      }`}
+    >
       <div className="max-w-6xl mx-auto">
         {isSubmitted ? (
           <div className="bg-white p-12 rounded-2xl shadow-xl flex flex-col items-center justify-center gap-6 min-h-[400px] border-2 border-[#6DC642]">

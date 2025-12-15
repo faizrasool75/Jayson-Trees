@@ -10,10 +10,20 @@ const sectionIds = {
   about: "about",
   "why-us": "why-us",
   gallery: "gallery",
-  contact: "contact",
+  contact: "contact-form",
 };
 
 const scrollToSection = (target) => {
+  // For contact, scroll to contact-form and trigger highlight
+  if (target === "contact") {
+    const formElement = document.getElementById("contact-form");
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      window.dispatchEvent(new Event('highlightContactForm'));
+      return;
+    }
+  }
+  
   // For why-us, try to find the marker first, fallback to about section
   if (target === "why-us") {
     const whyUsElement = document.getElementById("why-us");

@@ -115,13 +115,10 @@ const WhyChooseSection = ({ heading, highlighted, bodyDesktop, bodyMobile, image
           )}
           
           <a
-            href="#contact"
+            href="#contact-form"
             onClick={(e) => {
               e.preventDefault();
-              const contactSection = document.getElementById('contact');
-              if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-              }
+              window.dispatchEvent(new Event('highlightContactForm'));
             }}
             className={`mt-6 px-8 py-4 text-lg font-bold AvantBold bg-[#6DC642] rounded-2xl text-white rounded-tr-none transition-all duration-300 hover:bg-[#5AB032] hover:scale-105 hover:-translate-y-1 hover:shadow-2xl self-center sm:self-start cursor-pointer inline-block ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
