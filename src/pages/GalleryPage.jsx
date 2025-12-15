@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import HeroSection from "../components/HeroSection";
 import SlidingText from "../components/SlidingText";
+import Footer from "../components/Footer";
 import mainBg from "../../Jasons Tree/assets/images/mainbg.png";
 import heroDesktop from "../../Jasons Tree/assets/images/newBgedited.png";
 import fw1 from "../../Jasons Tree/assets/images/fw-1.png";
@@ -14,6 +16,10 @@ import serviceCard2 from "../../Jasons Tree/assets/images/servicecard-image-2.pn
 import serviceCard3 from "../../Jasons Tree/assets/images/servicecard-image-3.png";
 import serviceWhyImage from "../../Jasons Tree/assets/images/serviceWhy-1.png";
 import serviceWhyOverlay from "../../Jasons Tree/assets/images/serviceWhy-2.png";
+import bannerLeaf from "../../Jasons Tree/assets/images/bannerleafimage.png";
+import mwp1 from "../../Jasons Tree/assets/images/mwp-1.png";
+import mwp2 from "../../Jasons Tree/assets/images/mwp-2.png";
+import mwp3 from "../../Jasons Tree/assets/images/mwp-3.png";
 
 const galleryItems = [
   { src: fw1, category: "Commercial Projects", caption: "Retail plaza clearance • Commercial Tree Services Los Angeles" },
@@ -39,6 +45,7 @@ const categories = [
 ];
 
 const GalleryPage = () => {
+  const { onNavigate } = useOutletContext();
   const [filter, setFilter] = useState("All");
   const [lightboxItem, setLightboxItem] = useState(null);
 
@@ -70,9 +77,18 @@ const GalleryPage = () => {
 
       <SlidingText text="Commercial Projects • Residential Work • Palm Tree Trimming Los Angeles • Emergency Response • Tree Removal Los Angeles • Crew & Equipment" />
 
-      <section className="px-5 sm:px-16 py-12 sm:py-14">
+      <section className="relative px-5 sm:px-16 py-12 sm:py-14 bg-white/80 border border-white/40 shadow-xl backdrop-blur-sm overflow-hidden">
+        <img src={mwp1} alt="" className="absolute top-[20%] right-[5%] w-16 sm:w-24 opacity-20 pointer-events-none" />
+        <img src={mwp2} alt="" className="absolute bottom-[10%] left-[8%] w-14 sm:w-20 opacity-15 pointer-events-none" />
         <div className="max-w-6xl mx-auto flex flex-col gap-4">
-          <p className="AvantBold uppercase text-sm text-[#6DC642]">Filter Projects</p>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-full bg-[#6DC642] flex items-center justify-center">
+              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <p className="AvantBold uppercase text-sm text-[#6DC642]">Filter Projects</p>
+          </div>
           <div className="flex flex-wrap gap-3 mt-4">
             {categories.map((cat) => {
               const isActive = filter === cat;
@@ -95,26 +111,62 @@ const GalleryPage = () => {
         </div>
       </section>
 
-      <section className="px-5 sm:px-16 pb-16 sm:pb-24">
+      <section className="relative px-5 sm:px-16 pb-10 sm:pb-14 bg-white/80 border border-white/40 shadow-xl backdrop-blur-sm overflow-hidden">
+        <img src={mwp3} alt="" className="absolute top-[25%] right-[10%] w-18 sm:w-26 opacity-15 pointer-events-none" />
+        <img src={mwp1} alt="" className="absolute bottom-[30%] left-[5%] w-16 sm:w-24 opacity-20 pointer-events-none" />
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {filteredItems.map((item) => (
+          {filteredItems.map((item, index) => (
             <figure
               key={`${item.src}-${item.category}`}
-              className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-xl border border-gray-100"
+              className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-xl border border-gray-100 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(109,198,66,0.4)] hover:-translate-y-2 hover:border-[#6DC642]"
               onClick={() => setLightboxItem(item)}
+              style={{ animationDelay: `${index * 50}ms` }}
             >
               <img
                 src={item.src}
                 alt={item.category}
-                className="w-full h-64 sm:h-72 object-cover transition-transform duration-500 group-hover:scale-105 group-hover:rotate-1"
+                className="w-full h-64 sm:h-72 object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1 group-hover:brightness-110"
               />
-              <figcaption className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+              <figcaption className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent text-white opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4">
                 <p className="AvantBold text-sm uppercase text-[#6DC642]">{item.category}</p>
                 <p className="AvantLight text-sm leading-6">{item.caption}</p>
               </figcaption>
             </figure>
           ))}
         </div>
+      </section>
+
+      <section className="px-5 sm:px-16 py-12 sm:py-16 bg-[#6DC642] text-white relative overflow-hidden">
+        <img src={bannerLeaf} alt="" className="absolute -left-10 -top-8 w-32 sm:w-44 opacity-70" />
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 items-center">
+          <div className="sm:col-span-2 flex flex-col gap-3">
+            <p className="AvantBold uppercase text-sm">Ready to transform your property?</p>
+            <h2 className="Akria text-3xl sm:text-4xl leading-tight">
+              Book your free estimate today
+            </h2>
+            <p className="AvantLight text-base sm:text-lg text-white/90">
+              From commercial tree maintenance to emergency removals, our expert crews deliver safe, clean, and professional results across Los Angeles County and Orange County.
+            </p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <a
+              href="tel:+18055353739"
+              className="px-6 py-3 text-lg AvantBold bg-white text-[#356020] rounded-2xl rounded-tr-none hover:-translate-y-1 hover:scale-105 hover:shadow-2xl transition-all duration-300 text-center"
+            >
+              (805) 535-3739
+            </a>
+            <a
+              href="tel:+13237933516"
+              className="px-6 py-3 text-lg AvantBold bg-[#0F0F0F] text-white rounded-2xl rounded-tr-none hover:-translate-y-1 hover:scale-105 hover:shadow-2xl transition-all duration-300 text-center"
+            >
+              (323) 793-3516
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <Footer onNavigate={onNavigate} />
       </section>
 
       {lightboxItem && (

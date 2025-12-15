@@ -168,15 +168,22 @@ const Layout = () => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const leaves = document.querySelectorAll('img[src*="leaf"]');
-    if (!leaves.length) return;
+    const bgPatterns = document.querySelectorAll('img[src*="mwp"]');
+    
+    if (!leaves.length && !bgPatterns.length) return;
 
     leaves.forEach((leaf, index) => {
       leaf.classList.add("leaf-float", "leaf-item");
       leaf.dataset.leafIndex = index.toString();
     });
 
+    bgPatterns.forEach((pattern, index) => {
+      pattern.classList.add("bg-pattern");
+      pattern.dataset.patternIndex = index.toString();
+    });
+
     let rafId;
-    const updateLeaves = () => {
+    const updateElements = () => {
       const scrollY = window.scrollY;
       const time = Date.now() * 0.001;
       const range = window.innerWidth < 640 ? 20 : 40;
@@ -193,19 +200,33 @@ const Layout = () => {
         leaf.style.setProperty("--leaf-scroll-x", `${offsetX}px`);
         leaf.style.setProperty("--leaf-scroll-rotate", `${rotation}deg`);
       });
+
+      // Subtle parallax for background patterns
+      bgPatterns.forEach((pattern) => {
+        const index = Number.parseInt(pattern.dataset.patternIndex || "0", 10);
+        const rect = pattern.getBoundingClientRect();
+        const elementTop = rect.top + scrollY;
+        const scrollProgress = (scrollY - elementTop + window.innerHeight) / (window.innerHeight + rect.height);
+        
+        // Very subtle movement
+        const moveY = (scrollProgress - 0.5) * 15;
+        const moveX = Math.sin(scrollProgress * Math.PI + index) * 8;
+        
+        pattern.style.transform = `translateY(${moveY}px) translateX(${moveX}px)`;
+      });
     };
 
     const handleScroll = () => {
       if (rafId) return;
       rafId = window.requestAnimationFrame(() => {
-        updateLeaves();
+        updateElements();
         rafId = 0;
       });
     };
 
     // Continuous animation
     const animate = () => {
-      updateLeaves();
+      updateElements();
       requestAnimationFrame(animate);
     };
     animate();

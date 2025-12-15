@@ -583,6 +583,12 @@ header {
   opacity: 1;
 }
 
+/* Enhanced Card Hover with Green Glow */
+.bg-white\/90:hover,
+.bg-white:hover {
+  box-shadow: 0 10px 30px rgba(109, 198, 66, 0.15);
+}
+
 /* Image Zoom on Hover */
 .image-zoom-container {
   overflow: hidden;
@@ -659,6 +665,26 @@ header {
 
 .animate-scaleIn {
   animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Background Pattern Parallax */
+.bg-pattern {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Subtle parallax movement for background patterns */
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-8px) translateX(4px);
+  }
+}
+
+img[src*="mwp"] {
+  animation: subtleFloat 8s ease-in-out infinite;
 }
 
 

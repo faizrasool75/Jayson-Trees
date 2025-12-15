@@ -18,6 +18,9 @@ import bannerLeaf from "../../Jasons Tree/assets/images/bannerleafimage.png";
 import serviceSvg1 from "../../Jasons Tree/assets/svg/serviceSvg1.svg";
 import serviceSvg2 from "../../Jasons Tree/assets/svg/serviceSvg2.svg";
 import serviceSvg3 from "../../Jasons Tree/assets/svg/serviceSvg3.svg";
+import mwp1 from "../../Jasons Tree/assets/images/mwp-1.png";
+import mwp2 from "../../Jasons Tree/assets/images/mwp-2.png";
+import mwp3 from "../../Jasons Tree/assets/images/mwp-3.png";
 
 const AboutPage = () => {
   const { onNavigate } = useOutletContext();
@@ -45,7 +48,9 @@ const AboutPage = () => {
 
       <SlidingText text="Family-Owned Business • Licensed & Insured • Commercial Tree Services Los Angeles • Tree Removal Los Angeles • 24/7 Emergency Response" />
 
-      <section className="px-5 sm:px-16 py-12 sm:py-20 bg-white/80 border border-white/40 shadow-xl backdrop-blur-sm">
+      <section className="relative px-5 sm:px-16 py-12 sm:py-20 bg-white/80 border border-white/40 shadow-xl backdrop-blur-sm overflow-hidden">
+        <img src={mwp1} alt="" className="absolute top-[10%] right-[5%] w-16 sm:w-24 opacity-20 pointer-events-none" />
+        <img src={mwp2} alt="" className="absolute top-[50%] left-[3%] w-12 sm:w-20 opacity-15 pointer-events-none" />
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-16 items-center">
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
@@ -77,7 +82,9 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="px-5 sm:px-16 py-10 sm:py-14 bg-white/80 border border-white/40 shadow-xl backdrop-blur-sm">
+      <section className="relative px-5 sm:px-16 py-10 sm:py-14 bg-white/80 border border-white/40 shadow-xl backdrop-blur-sm overflow-hidden">
+        <img src={mwp3} alt="" className="absolute bottom-[15%] right-[8%] w-20 sm:w-28 opacity-15 pointer-events-none" />
+        <img src={mwp1} alt="" className="absolute top-[20%] left-[5%] w-16 sm:w-24 opacity-20 pointer-events-none" />
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
           <div className="bg-white/90 rounded-3xl p-6 shadow-xl border border-gray-100 flex flex-col gap-3 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-[#6DC642]">
             <div className="flex items-center gap-3">
@@ -122,7 +129,8 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="px-5 sm:px-16 py-10 sm:py-14">
+      <section className="relative px-5 sm:px-16 py-10 sm:py-14 overflow-hidden">
+        <img src={mwp2} alt="" className="absolute top-[30%] right-[10%] w-14 sm:w-22 opacity-20 pointer-events-none" />
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 items-center">
           <div className="grid grid-cols-3 gap-3">
             {[fw1, fw2, fw3].map((img, index) => (
@@ -150,7 +158,9 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="px-5 sm:px-16 py-12 sm:py-20 bg-white/80 border border-white/40 shadow-xl backdrop-blur-sm">
+      <section className="relative px-5 sm:px-16 py-12 sm:py-20 bg-white/80 border border-white/40 shadow-xl backdrop-blur-sm overflow-hidden">
+        <img src={mwp1} alt="" className="absolute bottom-[10%] left-[5%] w-18 sm:w-26 opacity-15 pointer-events-none" />
+        <img src={mwp3} alt="" className="absolute top-[15%] right-[3%] w-16 sm:w-24 opacity-20 pointer-events-none" />
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-16 items-center">
           <div className="relative order-2 sm:order-1">
             <div className="rounded-3xl overflow-hidden shadow-2xl group">
@@ -218,7 +228,9 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="px-5 sm:px-16 py-10 sm:py-14 bg-white/80 border border-white/40 shadow-xl backdrop-blur-sm">
+      <section className="relative px-5 sm:px-16 py-10 sm:py-14 bg-white/80 border border-white/40 shadow-xl backdrop-blur-sm overflow-hidden">
+        <img src={mwp2} alt="" className="absolute bottom-[20%] right-[12%] w-14 sm:w-20 opacity-15 pointer-events-none" />
+        <img src={mwp1} alt="" className="absolute top-[25%] left-[8%] w-16 sm:w-24 opacity-20 pointer-events-none" />
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center text-center gap-4 mb-10 sm:mb-14">
             <div className="flex items-center gap-3">
@@ -354,7 +366,8 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="px-5 sm:px-16 py-10 sm:py-14 bg-white/80 border border-white/40 shadow-xl backdrop-blur-sm">
+      <section className="relative px-5 sm:px-16 py-10 sm:py-14 bg-white/80 border border-white/40 shadow-xl backdrop-blur-sm overflow-hidden">
+        <img src={mwp3} alt="" className="absolute top-[10%] right-[5%] w-18 sm:w-26 opacity-15 pointer-events-none" />
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center text-center gap-4 mb-10 sm:mb-14">
             <div className="flex items-center gap-3">

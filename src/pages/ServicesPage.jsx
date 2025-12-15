@@ -141,7 +141,9 @@ const ServicesPage = () => {
 
       <SlidingText text="Los Angeles County Tree Service  •  Commercial Tree Services Los Angeles  •  Palm Tree Trimming Los Angeles  •  24/7 Emergency Tree Service LA" />
 
-      <section className="px-5 sm:px-16 py-12 sm:py-16">
+      <section className="relative px-5 sm:px-16 py-12 sm:py-16 overflow-hidden">
+        <img src={mwp1} alt="" className="absolute top-[10%] right-[5%] w-16 sm:w-24 opacity-20 pointer-events-none" />
+        <img src={mwp2} alt="" className="absolute bottom-[15%] left-[3%] w-14 sm:w-20 opacity-15 pointer-events-none" />
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 items-center">
           <div className="flex flex-col gap-3">
             <p className="AvantBold uppercase text-sm text-[#6DC642]">Commercial & Residential</p>
@@ -169,11 +171,13 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      {serviceCategories.map((category) => (
+      {serviceCategories.map((category, idx) => (
         <section
           key={category.title}
-          className="px-5 sm:px-16 py-12 sm:py-16 bg-white/80 text-[#0F0F0F] border border-white/40 shadow-xl backdrop-blur-sm"
+          className="relative px-5 sm:px-16 py-12 sm:py-16 bg-white/80 text-[#0F0F0F] border border-white/40 shadow-xl backdrop-blur-sm overflow-hidden"
         >
+          <img src={idx % 2 === 0 ? mwp1 : mwp3} alt="" className="absolute top-[15%] right-[8%] w-16 sm:w-24 opacity-15 pointer-events-none" />
+          <img src={mwp2} alt="" className="absolute bottom-[20%] left-[5%] w-14 sm:w-20 opacity-20 pointer-events-none" />
           <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
