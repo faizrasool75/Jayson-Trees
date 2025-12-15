@@ -135,7 +135,11 @@ const Footer = ({ onNavigate }) => (
           </p>
         </div>
         <a
-          href="tel:+18055353739"
+          href="#contact-form"
+          onClick={(e) => {
+            e.preventDefault();
+            window.dispatchEvent(new Event('highlightContactForm'));
+          }}
           className="bg-[#6DC642] py-2 px-4 w-fit h-fit rounded-b-full rounded-tl-full AvantBold hover:bg-white/70 hover:border-2 hover:border-[#0F0F0F] hover:text-[#356020] hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-pointer inline-block"
         >
           Book an Appointment

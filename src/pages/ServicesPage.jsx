@@ -5,6 +5,7 @@ import FeaturedWork from "../components/FeaturedWork";
 import ClientReviews from "../components/ClientReviews";
 import Footer from "../components/Footer";
 import SlidingText from "../components/SlidingText";
+import ContactForm from "../components/ContactForm";
 
 import mainBg from "../../Jasons Tree/assets/images/mainbg.png";
 import serviceHero from "../../Jasons Tree/assets/images/servicepageHero.png";
@@ -143,7 +144,11 @@ const ServicesPage = () => {
               appearance for homes, retail centers, and commercial properties.
             </p>
             <a
-              href="tel:+18055353739"
+              href="#contact-form"
+              onClick={(e) => {
+                e.preventDefault();
+                window.dispatchEvent(new Event('highlightContactForm'));
+              }}
               className="px-6 py-3 text-base sm:text-lg font-bold AvantBold bg-[#6DC642] rounded-2xl text-white rounded-tr-none transition-all duration-300 hover:bg-white hover:text-[#6DC642] hover:shadow-xl hover:scale-105 hover:-translate-y-1 z-[999] hero-text-line inline-block"
               style={{ animationDelay: '0.8s' }}
             >
@@ -334,6 +339,8 @@ const ServicesPage = () => {
     <Banner />
     <FeaturedWork />
     <ClientReviews />
+    
+    <ContactForm />
     
     <section id="contact">
       <Footer onNavigate={onNavigate} />

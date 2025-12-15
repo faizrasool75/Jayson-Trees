@@ -7,6 +7,7 @@ import FeaturedWork from "../components/FeaturedWork";
 import ClientReviews from "../components/ClientReviews";
 import Footer from "../components/Footer";
 import SlidingText from "../components/SlidingText";
+import ContactForm from "../components/ContactForm";
 
 import mainBg from "../../Jasons Tree/assets/images/mainbg.png";
 import heroDesktop from "../../Jasons Tree/assets/images/newBgedited.png";
@@ -152,6 +153,8 @@ const HomePage = () => {
       </section>
 
       <ClientReviews />
+
+      <ContactForm />
 
       <section id="contact">
         <Footer onNavigate={onNavigate} />

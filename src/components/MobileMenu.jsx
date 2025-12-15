@@ -120,8 +120,12 @@ const MobileMenu = ({ isOpen, onClose, onNavigate, activeSection = "home" }) => 
 
         {/* Book Appointment Button with Animation */}
         <a
-          href="tel:+18055353739"
-          onClick={onClose}
+          href="#contact-form"
+          onClick={(e) => {
+            e.preventDefault();
+            onClose();
+            window.dispatchEvent(new Event('highlightContactForm'));
+          }}
           className={`mx-auto px-4 py-3 text-xl font-bold AvantBold bg-[#6DC642] rounded-2xl text-white rounded-tr-none transition-all duration-500 hover:bg-white hover:text-[#6DC642] hover:scale-105 hover:shadow-lg inline-block ${
             isAnimating ? "translate-y-0 opacity-100 scale-100" : "translate-y-8 opacity-0 scale-90"
           }`}
