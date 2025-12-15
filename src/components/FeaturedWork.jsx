@@ -20,18 +20,18 @@ const FeaturedWork = () => {
   useEffect(() => {
     if (!row1Ref.current || !row2Ref.current || !sectionRef.current) return;
 
+    // Responsive movement distances
     const isMobile = window.innerWidth < 640;
     const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
-    
-    // Responsive movement distances
     const moveDistance = isMobile ? 30 : isTablet ? 60 : 100;
 
-    // Row 1: LEFT → RIGHT (starts from left, moves right)
+    // Row 1: LEFT → RIGHT (starts from left, moves to original position)
     gsap.fromTo(
       row1Ref.current,
       { x: -moveDistance },
       {
         x: 0,
+        ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
@@ -41,12 +41,13 @@ const FeaturedWork = () => {
       }
     );
 
-    // Row 2: RIGHT → LEFT (starts from right, moves left)
+    // Row 2: RIGHT → LEFT (starts from right, moves to original position)
     gsap.fromTo(
       row2Ref.current,
       { x: moveDistance },
       {
         x: 0,
+        ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
@@ -137,4 +138,3 @@ const FeaturedWork = () => {
 };
 
 export default FeaturedWork;
-
