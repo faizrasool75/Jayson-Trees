@@ -56,11 +56,20 @@ const Banner = () => {
       className="relative section4 w-full pt-[80px] pb-[80px] mt-12 sm:pt-[80px] sm:pb-[80px] sm:mt-7 flex items-center justify-center"
     >
       <img
-        className={`absolute -top-16 -left-1 z-10 sm:w-[12%] w-[30%] transition-all duration-1000 ease-out ${
+        className={`absolute -top-16 -left-1 z-[9990] sm:w-[12%] w-[30%] cursor-pointer ${
           isVisible
             ? "opacity-100 rotate-0 scale-100"
             : "opacity-0 -rotate-12 scale-75"
         }`}
+        style={{
+          transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'translate(15px, -12px) rotate(12deg) scale(1.15)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'translate(0, 0) rotate(0deg) scale(1)';
+        }}
         src={bannerLeaf}
         alt=""
       />
@@ -81,12 +90,13 @@ const Banner = () => {
           <p className="text-white AvantLight text-sm px-5 sm:px-0">
             Immediate dispatch for fallen trees, storm damage, and hazards.
           </p>
-          <button
-            type="button"
-            className="py-2 w-fit bg-[#356020] AvantBold text-white px-6 rounded-b-2xl rounded-tl-2xl hover:bg-white hover:text-[#356020] hover:scale-105 transition-all ease-in duration-150 cursor-pointer"
+          <a
+            href="tel:+18055353739"
+            className="py-2 w-fit bg-[#356020] AvantBold text-white px-6 rounded-b-2xl rounded-tl-2xl hover:bg-white hover:text-[#356020] hover:scale-110 hover:-translate-y-1 hover:shadow-xl transition-all ease-out duration-300 cursor-pointer relative overflow-hidden group inline-block"
           >
-            Call (805)535-3739
-          </button>
+            <span className="relative z-10">Call (805) 535-3739</span>
+            <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+          </a>
         </div>
         <img
           ref={imageRef}

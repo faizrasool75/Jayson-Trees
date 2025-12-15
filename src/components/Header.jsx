@@ -1,50 +1,78 @@
+import { useLocation } from "react-router-dom";
 import logo from "../../Jasons Tree/assets/images/logo.png";
 import mobileMenuButton from "../../Jasons Tree/assets/svg/mobileMenuButton.svg";
 import leafIcon from "../../Jasons Tree/assets/svg/mobildeMenuLeafsvg.svg";
 
 const navLeft = [
-  { label: "Home", key: "home", highlight: true },
-  { label: "About Us", key: "about" },
+  { label: "Home", key: "home" },
   { label: "Why Choose Us", key: "why-us" },
 ];
 
 const navRight = [
-  { label: "Services>", key: "services" },
+  { label: "Services", key: "services" },
   { label: "Gallery", key: "gallery" },
   { label: "Contact Us", key: "contact" },
 ];
 
-const Header = ({ onNavigate, onMenuToggle, isMenuOpen }) => {
-  const renderLink = ({ label, key, highlightIcon }) => (
-    <a
-      href={`#${key}`}
-      onClick={(event) => {
-        event.preventDefault();
-        onNavigate?.(key);
-      }}
-      className="AvantLight flex justify-start items-center gap-1 text-base"
-      aria-label={`Go to ${label}`}
-    >
-      {highlightIcon && (
-        <img src={leafIcon} alt="" className="w-6" aria-hidden="true" />
-      )}
-      {label}
-    </a>
-  );
+const Header = ({ onNavigate, onMenuToggle, isMenuOpen, activeSection = "home" }) => {
+  const location = useLocation();
+
+  const renderLink = ({ label, key }) => {
+    // Check if this specific item is active
+    const isActive = activeSection === key || 
+                    (key === "services" && location.pathname === "/services");
+    
+    return (
+      <a
+        href={`#${key}`}
+        onClick={(event) => {
+          event.preventDefault();
+          onNavigate?.(key);
+        }}
+        className={`AvantBold flex justify-start items-center gap-2 text-base transition-all duration-300 hover:text-[#6DC642] hover:-translate-y-1 group relative ${
+          isActive ? "text-[#6DC642]" : ""
+        }`}
+        aria-label={`Go to ${label}`}
+      >
+        {isActive && (
+          <img 
+            src={leafIcon} 
+            alt="" 
+            className="w-6 transition-all duration-500 group-hover:rotate-[360deg]" 
+            aria-hidden="true" 
+          />
+        )}
+        <span className="relative">
+          {label}
+          <span className={`absolute bottom-0 left-0 h-0.5 bg-[#6DC642] transition-all duration-300 ${
+            isActive ? "w-full" : "w-0 group-hover:w-full"
+          }`}></span>
+        </span>
+      </a>
+    );
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 w-full px-4 py-5 sm:py-8 flex justify-between sm:justify-center items-center gap-20 z-[999] AvantLight">
       <div className="hidden sm:flex justify-start text-[#0F0F0F] items-center gap-10 text-base">
         {navLeft.map((link) => (
-          <span key={link.key}>{renderLink({ ...link, highlightIcon: link.highlight })}</span>
+          <span key={link.key}>{renderLink(link)}</span>
         ))}
       </div>
-      <img src={logo} alt="Jason's Tree Service Logo" className="w-16 sm:w-24" />
+      <a 
+        href="#home"
+        onClick={(event) => {
+          event.preventDefault();
+          onNavigate?.("home");
+        }}
+        className="cursor-pointer"
+        aria-label="Go to homepage"
+      >
+        <img src={logo} alt="Jason's Tree Service Logo" className="w-16 sm:w-40" />
+      </a>
       <div className="hidden sm:flex justify-start text-[#0F0F0F] items-center gap-10 text-base">
         {navRight.map((link) => (
-          <span key={link.key}>
-            {renderLink({ ...link, highlightIcon: link.key === "services" })}
-          </span>
+          <span key={link.key}>{renderLink(link)}</span>
         ))}
       </div>
       <button

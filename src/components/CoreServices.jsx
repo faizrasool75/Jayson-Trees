@@ -68,11 +68,20 @@ const CoreServices = () => {
     <div ref={sectionRef} className="section_3 w-full overflow-hidden pt-0">
       <div className="relative w-full flex flex-col gap-3 justify-center items-center pb-10 sm:pb-28 text-center">
         <img
-          className={`absolute w-[20%] sm:w-[12%] top-16 sm:top-10 sm:-top-7 -left-5 sm:left-36 transition-all duration-1000 ease-out ${
+          className={`absolute w-[20%] sm:w-[12%] top-16 sm:top-10 sm:-top-7 -left-5 sm:left-36 cursor-pointer z-[9990] ${
             isVisible
               ? "opacity-100 translate-x-0 rotate-0"
               : "opacity-0 -translate-x-12 -rotate-45"
           }`}
+          style={{
+            transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translate(15px, -12px) rotate(12deg) scale(1.15)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translate(0, 0) rotate(0deg) scale(1)';
+          }}
           src={serviceLeaf1}
           alt=""
         />
@@ -96,18 +105,27 @@ const CoreServices = () => {
 
       <div className="relative flex flex-col sm:flex-row gap-16 sm:gap-8 justify-center items-center sm:items-start w-full">
         <img
-          className={`absolute -right-1 -top-10 w-[10%] transition-all duration-1000 ease-out ${
+          className={`absolute -right-1 -top-10 w-[10%] cursor-pointer z-[9990] ${
             isVisible
               ? "opacity-100 translate-x-0 rotate-0"
               : "opacity-0 translate-x-12 rotate-45"
           }`}
+          style={{
+            transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translate(-15px, -15px) rotate(-12deg) scale(1.15)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translate(0, 0) rotate(0deg) scale(1)';
+          }}
           src={serviceLeaf2}
           alt=""
         />
         {coreServices.map((service, index) => (
           <div
             key={service.number}
-            className={`card gap-4 h-full w-[85%] sm:w-[28%] bg-white relative flex flex-col transition-all duration-1000 ease-out hover:scale-105 hover:shadow-2xl ${
+            className={`card gap-4 h-full w-[85%] sm:w-[28%] bg-white relative flex flex-col transition-all duration-700 ease-out hover:scale-105 hover:-translate-y-3 cursor-pointer rounded-lg overflow-hidden ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-16"
@@ -116,14 +134,16 @@ const CoreServices = () => {
               transitionDelay: isVisible ? `${200 + index * 150}ms` : "0ms",
             }}
           >
-            <div className="absolute bg-[#6DC642] w-10 h-10 rounded-full -top-1 -left-1 flex items-center justify-center transition-transform duration-300 hover:scale-110 hover:rotate-12">
+            <div className="absolute bg-[#6DC642] w-10 h-10 rounded-full -top-1 -left-1 flex items-center justify-center transition-all duration-500 hover:scale-125 hover:rotate-[360deg] z-10">
               <img className="w-[80%] h-[70%]" src={service.icon} alt="" />
             </div>
-            <img
-              className="w-full h-full object-cover mb-3 transition-transform duration-500 hover:scale-105"
-              src={service.image}
-              alt=""
-            />
+            <div className="overflow-hidden">
+              <img
+                className="w-full h-full object-cover mb-3 transition-transform duration-700 hover:scale-110 hover:rotate-2"
+                src={service.image}
+                alt=""
+              />
+            </div>
             <h1 className="text-2xl sm:text-4xl AvantBold font-semibold text-[#0F0F0F]">
               {service.number}
             </h1>

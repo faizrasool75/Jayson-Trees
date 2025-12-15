@@ -5,24 +5,70 @@ import phoneIcon from "../../Jasons Tree/assets/svg/phone.svg";
 import clockIcon from "../../Jasons Tree/assets/svg/clock.svg";
 import emailIcon from "../../Jasons Tree/assets/svg/email.svg";
 
-const Footer = () => (
+const Footer = ({ onNavigate }) => (
   <div className="relative footer w-full flex items-center justify-center text-white AvantLight pt-0 sm:pt-10">
     <img
-      className="absolute w-[20%] sm:w-[12%] left-0 -top-10 sm:-top-18 z-20"
+      className="absolute w-[20%] sm:w-[12%] left-0 -top-10 sm:-top-18 z-[9990] cursor-pointer"
+      style={{
+        transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'translate(15px, -12px) rotate(12deg) scale(1.15)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'translate(0, 0) rotate(0deg) scale(1)';
+      }}
       src={footerLeaf1}
       alt=""
     />
-    <img className="absolute w-[10%] bottom-0 right-0" src={footerLeaf2} alt="" />
+    <img 
+      className="absolute w-[10%] bottom-0 right-0 z-[9990] cursor-pointer" 
+      style={{
+        transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'translate(-15px, -15px) rotate(-12deg) scale(1.15)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'translate(0, 0) rotate(0deg) scale(1)';
+      }}
+      src={footerLeaf2} 
+      alt="" 
+    />
     <div className="bg-[#356020] w-full max-sm:px-4 sm:w-[90%] h-full rounded-t-[20px] sm:rounded-t-[100px] pb-6">
       <div className="footertop h-fit w-full flex flex-col sm:flex-row items-center sm:items-end justify-between pt-[25px] sm:pt-[25px]">
         <img className="w-[50%] sm:w-[25%] pl-0 sm:pl-20" src={footerLogo} alt="Logo" />
         <div className="w-full sm:w-[65%] flex flex-wrap pt-10 sm:pt-0 gap-8 sm:gap-5 justify-between pr-5 text-sm font-semibold">
           <div className="flex flex-col gap-2">
             <h1 className="uppercase AvantBold">Quick Links</h1>
-            <h2>About Us</h2>
-            <h2>Why Choose Us</h2>
-            <h2>Gallery</h2>
-            <h2>Contact Us</h2>
+            <a 
+              href="#about" 
+              onClick={(e) => { e.preventDefault(); onNavigate?.('about'); }}
+              className="hover:text-[#6DC642] transition-all duration-300 hover:translate-x-2 cursor-pointer"
+            >
+              About Us
+            </a>
+            <a 
+              href="#why-us" 
+              onClick={(e) => { e.preventDefault(); onNavigate?.('why-us'); }}
+              className="hover:text-[#6DC642] transition-all duration-300 hover:translate-x-2 cursor-pointer"
+            >
+              Why Choose Us
+            </a>
+            <a 
+              href="#gallery" 
+              onClick={(e) => { e.preventDefault(); onNavigate?.('gallery'); }}
+              className="hover:text-[#6DC642] transition-all duration-300 hover:translate-x-2 cursor-pointer"
+            >
+              Gallery
+            </a>
+            <a 
+              href="#contact" 
+              onClick={(e) => { e.preventDefault(); onNavigate?.('contact'); }}
+              className="hover:text-[#6DC642] transition-all duration-300 hover:translate-x-2 cursor-pointer"
+            >
+              Contact Us
+            </a>
           </div>
           <div className="flex flex-col gap-2">
             <h1 className="uppercase AvantBold">SERVICE AREAS</h1>
@@ -32,14 +78,20 @@ const Footer = () => (
             <h2>Surrounding Cities</h2>
           </div>
           <div className="flex flex-col gap-2">
-            <div className="flex gap-2">
-              <img className="w-[7%]" src={phoneIcon} alt="Phone" />
-              <h1 className="text-lg">(805)535-3739</h1>
-            </div>
-            <div className="flex gap-2">
-              <img className="w-[7%]" src={phoneIcon} alt="Phone" />
+            <a 
+              href="tel:+18055353739" 
+              className="flex gap-2 items-center hover:text-[#6DC642] transition-all duration-300 hover:scale-105 cursor-pointer group"
+            >
+              <img className="w-[7%] transition-transform duration-300 group-hover:rotate-12" src={phoneIcon} alt="Phone" />
+              <h1 className="text-lg">(805) 535-3739</h1>
+            </a>
+            <a 
+              href="tel:+18055016923" 
+              className="flex gap-2 items-center hover:text-[#6DC642] transition-all duration-300 hover:scale-105 cursor-pointer group"
+            >
+              <img className="w-[7%] transition-transform duration-300 group-hover:rotate-12" src={phoneIcon} alt="Phone" />
               <h1 className="text-lg">(805) 501-6923</h1>
-            </div>
+            </a>
             <div className="flex gap-2">
               <img className="w-[7%]" src={clockIcon} alt="Clock" />
               <span className="leading-tight">
@@ -49,10 +101,13 @@ const Footer = () => (
                 <h1>Response Available</h1>
               </span>
             </div>
-            <div className="flex gap-2">
-              <img className="w-[7%]" src={emailIcon} alt="Email" />
+            <a 
+              href="mailto:info@jaysonstreeservice.com" 
+              className="flex gap-2 items-center hover:text-[#6DC642] transition-all duration-300 hover:scale-105 cursor-pointer group"
+            >
+              <img className="w-[7%] transition-transform duration-300 group-hover:scale-110" src={emailIcon} alt="Email" />
               <h1 className="AvantLight font-lg font-semibold">info@jaysonstreeservice.com</h1>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -79,12 +134,12 @@ const Footer = () => (
             your home or commercial property.
           </p>
         </div>
-        <button
-          type="button"
-          className="bg-[#6DC642] py-2 px-4 w-fit h-fit rounded-b-full rounded-tl-full AvantBold hover:bg-white/70 hover:border-2 hover:border-[#0F0F0F] hover:text-[#356020] transition-all delay-100 cursor-pointer"
+        <a
+          href="tel:+18055353739"
+          className="bg-[#6DC642] py-2 px-4 w-fit h-fit rounded-b-full rounded-tl-full AvantBold hover:bg-white/70 hover:border-2 hover:border-[#0F0F0F] hover:text-[#356020] hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-pointer inline-block"
         >
           Book an Appointment
-        </button>
+        </a>
       </div>
 
       <div className="w-full flex flex-col sm:flex-row text-center justify-between text-xs sm:px-20">

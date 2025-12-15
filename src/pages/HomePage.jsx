@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
 import WhyChooseSection from "../components/WhyChooseSection";
 import CoreServices from "../components/CoreServices";
 import Banner from "../components/Banner";
@@ -28,6 +29,8 @@ const bulletItems = [
 ];
 
 const HomePage = () => {
+  const { onNavigate } = useOutletContext();
+  
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.innerWidth < 1024) return;
@@ -104,20 +107,20 @@ const HomePage = () => {
 
             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center px-4 sm:px-8 z-[50]">
               <h1
-                className="relative text-center text-4xl sm:text-5xl lg:text-6xl Akria text-[#0F0F0F]"
+                className="relative text-center text-4xl sm:text-5xl lg:text-6xl Akria text-[#0F0F0F] hero-heading"
                 style={{ lineHeight: "1.2" }}
               >
-                <span className="block sm:inline">Professional</span>
+                <span className="block sm:inline hero-text-line" style={{ animationDelay: '0.2s' }}>Professional</span>
                 <br className="hidden sm:block" />
-                <span className="text-[#358D0A] block sm:inline">
+                <span className="text-[#358D0A] block sm:inline hero-text-line" style={{ animationDelay: '0.4s' }}>
                   Commercial <br />
                   & Residential Tree <br />
                   Services{" "}
                 </span>
                 <br className="hidden sm:block" />
-                <span className="block sm:inline">in Los Angeles &</span>
+                <span className="block sm:inline hero-text-line" style={{ animationDelay: '0.6s' }}>in Los Angeles &</span>
                 <br className="hidden sm:block" />
-                <span className="block sm:inline">Orange County</span>
+                <span className="block sm:inline hero-text-line" style={{ animationDelay: '0.8s' }}>Orange County</span>
               </h1>
             </div>
           </div>
@@ -127,16 +130,16 @@ const HomePage = () => {
       <SlidingText text="25% OFF  --  Palm Tree Services (10+ Palms)" />
 
       <section id="about">
+        <div id="why-us" />
         <WhyChooseSection
           heading="WHY"
           highlighted="CHOOSE US"
-          bodyDesktop="At Jayson’s Tree Service, we combine professional expertise with the reliability of a family-owned business. As a licensed and fully insured team, we follow strict safety standards to protect your property and deliver consistent, high-quality results. Our experienced crew handles everything from residential pruning to commercial-scale removals, always with precision, respect for your space, and fast turnaround times. And when emergencies strike, we’re ready — offering 24/7 emergency response for storm damage, fallen trees, and urgent hazards anywhere in Los Angeles or Orange County."
-          bodyMobile="At Jayson’s Tree Service, we combine professional expertise with the reliability of a family-owned business. As a licensed and fully insured team, we follow strict safety standards to protect your property and deliver consistent, high-quality results. Our experienced crew handles everything from residential pruning to commercial-scale removals, always with precision, respect for your space, and fast turnaround times. And when emergencies strike, we’re ready — offering 24/7 emergency response for storm damage, fallen trees, and urgent hazards anywhere in Los Angeles or Orange County."
+          bodyDesktop="At Jayson's Tree Service, we combine professional expertise with the reliability of a family-owned business. As a licensed and fully insured team, we follow strict safety standards to protect your property and deliver consistent, high-quality results. Our experienced crew handles everything from residential pruning to commercial-scale removals, always with precision, respect for your space, and fast turnaround times. And when emergencies strike, we're ready — offering 24/7 emergency response for storm damage, fallen trees, and urgent hazards anywhere in Los Angeles or Orange County."
+          bodyMobile="At Jayson's Tree Service, we combine professional expertise with the reliability of a family-owned business. As a licensed and fully insured team, we follow strict safety standards to protect your property and deliver consistent, high-quality results. Our experienced crew handles everything from residential pruning to commercial-scale removals, always with precision, respect for your space, and fast turnaround times. And when emergencies strike, we're ready — offering 24/7 emergency response for storm damage, fallen trees, and urgent hazards anywhere in Los Angeles or Orange County."
           imageMain={heroImageLarge}
           imageOverlay={heroImageAccent}
           bulletItems={bulletItems}
         />
-        <div id="why-us" />
       </section>
 
       <div className="sm:mt-0 mt-16 sm:-mt-2">
@@ -151,7 +154,7 @@ const HomePage = () => {
       <ClientReviews />
 
       <section id="contact">
-        <Footer />
+        <Footer onNavigate={onNavigate} />
       </section>
     </div>
   );
