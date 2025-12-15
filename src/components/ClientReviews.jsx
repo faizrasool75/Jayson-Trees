@@ -3,31 +3,31 @@ import Angi from "../../Jasons Tree/assets/svg/Angi.svg";
 
 const reviews = [
   {
-    text: "Fast, professional and great pricing. They cleaned everything perfectly. Highly recommend Jayson's Tree Service!",
+    text: "Fast, professional and great pricing. They cleaned everything perfectly!",
     author: "Maria Rodriguez",
     rating: 5,
     location: "Los Angeles, CA"
   },
   {
-    text: "Excellent service! The crew was professional, efficient, and the cleanup was thorough. They transformed my backyard!",
+    text: "Excellent service! Professional crew and thorough cleanup. Highly recommend!",
     author: "John Davidson",
     rating: 5,
     location: "Orange County, CA"
   },
   {
-    text: "Quick response for emergency tree removal after the storm. Great job, fair price, and very professional. Will use again!",
+    text: "Quick emergency response after the storm. Great job and fair price!",
     author: "Sarah Mitchell",
     rating: 5,
     location: "Irvine, CA"
   },
   {
-    text: "Best tree service in LA! They removed three large trees safely and cleaned up perfectly. The team was courteous and skilled.",
+    text: "Best tree service in LA! Safe removal and perfect cleanup.",
     author: "Robert Chen",
     rating: 5,
     location: "Pasadena, CA"
   },
   {
-    text: "Outstanding work on our commercial property. They handle all our tree maintenance needs professionally and on schedule. Highly satisfied!",
+    text: "Outstanding work on our commercial property. Professional and on schedule!",
     author: "Jennifer Martinez",
     rating: 5,
     location: "Santa Ana, CA"
