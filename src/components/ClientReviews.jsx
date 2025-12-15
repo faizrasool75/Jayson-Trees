@@ -45,46 +45,44 @@ const ClientReviews = () => {
   }, []);
 
   return (
-    <div className="section6 h-fit py-20 w-full px-5 sm:px-16 -z-10">
+    <div className="section6 h-fit py-20 w-full px-5 sm:px-16">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col sm:flex-row gap-10 items-center">
+        <div className="flex flex-col sm:flex-row gap-12 sm:gap-16 items-start">
           {/* Left Side - Info */}
-          <div className="w-full sm:w-[45%] flex flex-col gap-6">
-            <div className="flex flex-col sm:flex-row w-full items-center gap-6 sm:gap-10">
-              <h1 className="text-black Akria text-3xl sm:text-4xl font-bold text-center sm:text-start leading-tight">
+          <div className="w-full sm:w-[40%] flex flex-col gap-6">
+            <div className="flex flex-col items-center sm:items-start gap-6">
+              <h1 className="text-[#0F0F0F] Akria text-3xl sm:text-4xl font-bold text-center sm:text-start leading-tight">
                 CLIENT <br />
                 REVIEWS
               </h1>
-              <img className="w-[40%] sm:w-[30%] hover:scale-105 transition-transform duration-300" src={Angi} alt="Angi Reviews" />
+              <img className="w-[50%] sm:w-[60%] hover:scale-105 transition-transform duration-300" src={Angi} alt="Angi Reviews" />
             </div>
-            <p className="AvantLight text-base sm:text-lg leading-7 text-[#2C2C2C] font-medium">
-              Our clients consistently highlight our fast response times, <br className="hidden sm:block" />
-              professional crew, and high-quality results. From homeowners <br className="hidden sm:block" />
-              to large commercial property managers, we're trusted across <br className="hidden sm:block" />
-              Los Angeles and Orange County for reliable, safe, and <br className="hidden sm:block" />
-              efficient tree services.
+            
+            <p className="AvantLight text-base sm:text-lg leading-7 text-[#2C2C2C] font-medium text-center sm:text-left">
+              Our clients consistently highlight our fast response times, professional crew, and high-quality results. From homeowners to large commercial property managers, we're trusted across Los Angeles and Orange County for reliable, safe, and efficient tree services.
             </p>
+            
             <a
               href="#contact-form"
               onClick={(e) => {
                 e.preventDefault();
                 window.dispatchEvent(new Event('highlightContactForm'));
               }}
-              className="bg-[#6DC642] py-3 px-6 w-fit h-fit rounded-b-2xl rounded-tl-2xl AvantBold text-white hover:bg-white hover:text-[#356020] hover:scale-105 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 cursor-pointer inline-block"
+              className="bg-[#6DC642] py-3 px-6 w-fit mx-auto sm:mx-0 rounded-b-2xl rounded-tl-2xl AvantBold text-white hover:bg-white hover:text-[#356020] hover:scale-105 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 cursor-pointer inline-block"
             >
               Book an Appointment
             </a>
           </div>
 
           {/* Right Side - Reviews Slider */}
-          <div className="w-full sm:w-[55%]">
-            <div className="relative bg-white/95 backdrop-blur-sm p-8 sm:p-10 rounded-2xl shadow-xl">
+          <div className="w-full sm:w-[60%]">
+            <div className="relative bg-gradient-to-br from-white/95 to-white/90 backdrop-blur-md p-8 sm:p-12 rounded-3xl shadow-2xl border border-gray-100">
               {/* Stars */}
-              <div className="flex gap-1 justify-center mb-6">
+              <div className="flex gap-2 justify-center mb-8">
                 {[...Array(5)].map((_, i) => (
                   <svg
                     key={i}
-                    className="w-6 h-6 sm:w-8 sm:h-8 text-[#6DC642]"
+                    className="w-7 h-7 sm:w-9 sm:h-9 text-[#6DC642] drop-shadow-sm"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -94,33 +92,38 @@ const ClientReviews = () => {
               </div>
 
               {/* Review Content */}
-              <div className="relative min-h-[200px]">
+              <div className="relative min-h-[220px] sm:min-h-[240px]">
                 {reviews.map((review, index) => (
                   <div
                     key={index}
-                    className={`absolute inset-0 transition-all duration-500 ${
+                    className={`absolute inset-0 transition-all duration-700 ${
                       index === activeIndex
-                        ? "opacity-100 translate-y-0 pointer-events-auto"
-                        : "opacity-0 translate-y-4 pointer-events-none"
+                        ? "opacity-100 scale-100 pointer-events-auto"
+                        : "opacity-0 scale-95 pointer-events-none"
                     }`}
                   >
-                    <p className="Akria text-xl sm:text-2xl text-[#0F0F0F] text-center mb-6 leading-relaxed">
-                      "{review.text}"
-                    </p>
-                    <div className="border-t-2 border-gray-200 pt-4 mt-4">
-                      <p className="AvantBold text-base text-[#0F0F0F] text-center">
-                        — {review.author}
+                    <div className="flex flex-col justify-center h-full">
+                      <p className="AvantLight text-lg sm:text-xl text-[#0F0F0F] text-center mb-6 leading-relaxed italic px-4">
+                        "{review.text}"
                       </p>
-                      <p className="AvantLight text-sm text-[#6DC642] text-center mt-1">
-                        {review.location}
-                      </p>
+                      <div className="border-t-2 border-[#6DC642]/20 pt-6 mt-6">
+                        <p className="AvantBold text-lg text-[#0F0F0F] text-center">
+                          {review.author}
+                        </p>
+                        <p className="AvantLight text-sm text-[#6DC642] text-center mt-2 flex items-center justify-center gap-1">
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                          </svg>
+                          {review.location}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Pagination Dots */}
-              <div className="flex justify-center gap-2 mt-8">
+              <div className="flex justify-center gap-3 mt-10">
                 {reviews.map((_, index) => (
                   <button
                     key={index}
@@ -129,14 +132,30 @@ const ClientReviews = () => {
                       setActiveIndex(index);
                       resetAutoplay();
                     }}
-                    className={`h-2 rounded-full transition-all duration-300 ${
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
                       index === activeIndex
-                        ? "bg-[#6DC642] w-8"
-                        : "bg-gray-300 w-2 hover:bg-gray-400"
+                        ? "bg-[#6DC642] w-10 shadow-lg"
+                        : "bg-gray-300 w-2.5 hover:bg-gray-400 hover:w-4"
                     }`}
                     aria-label={`Go to review ${index + 1}`}
                   />
                 ))}
+              </div>
+
+              {/* Progress Bar */}
+              <div className="mt-6">
+                <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-[#6DC642] to-[#5AB032] rounded-full transition-all duration-500 ease-out shadow-lg"
+                    style={{ 
+                      width: `${((activeIndex + 1) / reviews.length) * 100}%`,
+                      boxShadow: '0 0 10px rgba(109, 198, 66, 0.5)'
+                    }}
+                  />
+                </div>
+                <p className="AvantLight text-xs text-center text-gray-400 mt-2">
+                  Review {activeIndex + 1} of {reviews.length}
+                </p>
               </div>
             </div>
           </div>
