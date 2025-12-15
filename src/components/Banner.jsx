@@ -100,7 +100,7 @@ const Banner = () => {
         </div>
         <img
           ref={imageRef}
-          className="sm:absolute w-full sm:w-[55%] -right-5 -bottom-[72px] pt-5 sm:pt-0 transition-all duration-700 ease-out"
+          className="sm:absolute w-full sm:w-[35%] -right-5 -bottom-[45px] pt-5 sm:pt-0 transition-all duration-700 ease-out"
           src={bannerImage}
           alt=""
           style={{
