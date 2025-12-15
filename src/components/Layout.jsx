@@ -72,7 +72,10 @@ const Layout = () => {
 
     elements.forEach((el, index) => {
       if (el.classList.contains("scroll-animate")) return;
-      el.classList.add("scroll-animate", animationClasses[index % animationClasses.length]);
+      el.classList.add(
+        "scroll-animate",
+        animationClasses[index % animationClasses.length]
+      );
     });
 
     const observer = new IntersectionObserver(
