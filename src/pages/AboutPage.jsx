@@ -7,6 +7,7 @@ import heroMobile from "../../Jasons Tree/assets/images/about_hero.jpg";
 import familyMain from "../../Jasons Tree/assets/images/whyChooseImage-1.png";
 import familyCrew from "../../Jasons Tree/assets/images/whyChoseimage-2.png";
 import serviceWhyImage from "../../Jasons Tree/assets/images/serviceWhy-1.png";
+import aboutSide from "../../Jasons Tree/assets/images/about side.jpg";
 import fw4 from "../../Jasons Tree/assets/images/fw-4.png";
 import fw5 from "../../Jasons Tree/assets/images/fw-5.png";
 import fw6 from "../../Jasons Tree/assets/images/fw-6.png";
@@ -81,7 +82,7 @@ const AboutPage = () => {
 
       <section className="relative px-5 sm:px-16 py-12 sm:py-20 overflow-hidden">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
-          <div className="flex flex-col gap-4 sm:gap-5">
+          <div className="flex flex-col gap-4 sm:gap-5 h-full">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-[#6DC642] flex items-center justify-center shadow-lg">
                 <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -99,13 +100,31 @@ const AboutPage = () => {
             <p className="AvantLight text-sm sm:text-base lg:text-lg text-[#2C2C2C] leading-relaxed">
               We're not just a vendor—we're a family business that treats every residential yard and commercial complex with the same attention to detail. Our crews understand tight timelines, guest-facing properties, and the importance of zero-damage service. That's why property managers, HOAs, and families across Los Angeles County and Orange County call us first.
             </p>
+            <div className="flex flex-col sm:flex-row gap-3 mt-4">
+              <button
+                type="button"
+                onClick={() => {
+                  window.dispatchEvent(new Event("highlightContactForm"));
+                  onNavigate?.("contact");
+                }}
+                className="px-6 py-3 text-sm sm:text-base AvantBold rounded-2xl rounded-tr-none bg-[#6DC642] text-white transition-all duration-300 hover:bg-[#5AB032] hover:-translate-y-1 hover:scale-105 hover:shadow-2xl"
+              >
+                Get Free Estimate
+              </button>
+              <a
+                href="tel:+18055353739"
+                className="px-6 py-3 text-sm sm:text-base AvantBold rounded-2xl rounded-tr-none border border-gray-200 text-[#0F0F0F] bg-white/20 transition-all duration-300 hover:border-[#6DC642] hover:-translate-y-1 hover:scale-105 text-center"
+              >
+                Call Now
+              </a>
+            </div>
           </div>
           <div className="relative h-full">
-            <div className="rounded-3xl overflow-hidden h-full">
+            <div className="rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 h-full">
               <img 
-                src={familyMain} 
+                src={aboutSide} 
                 alt="Family owned tree service crew" 
-                className="w-full h-full object-cover" 
+                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" 
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
