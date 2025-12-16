@@ -5,8 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SlidingText from "../components/SlidingText";
 import Footer from "../components/Footer";
 import mainBg from "../../Jasons Tree/assets/images/mainbg.png";
-import heroDesktop from "../../Jasons Tree/assets/images/newBgedited.png";
-import heroMobile from "../../Jasons Tree/assets/images/newEditedBgmobile.png";
+import heroDesktop from "../../Jasons Tree/assets/images/gallery_hero.jpg";
+import heroMobile from "../../Jasons Tree/assets/images/gallery_hero.jpg";
 import fw1 from "../../Jasons Tree/assets/images/fw-1.png";
 import fw2 from "../../Jasons Tree/assets/images/fw-2.png";
 import fw3 from "../../Jasons Tree/assets/images/fw-3.png";
@@ -174,6 +174,7 @@ const GalleryPage = () => {
               className="w-full h-[110%] object-cover object-top sm:hidden absolute top-0 left-0"
               style={{ objectPosition: "center top" }}
             />
+            <div className="absolute inset-0 bg-white/60" />
             
             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center px-4 sm:px-8 z-[50]">
               <h1

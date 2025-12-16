@@ -10,8 +10,8 @@ import SlidingText from "../components/SlidingText";
 import ContactForm from "../components/ContactForm";
 
 import mainBg from "../../Jasons Tree/assets/images/mainbg.png";
-import heroDesktop from "../../Jasons Tree/assets/images/newBgedited.png";
-import heroMobile from "../../Jasons Tree/assets/images/newEditedBgmobile.png";
+import heroDesktop from "../../Jasons Tree/assets/images/home_hero.jpg";
+import heroMobile from "../../Jasons Tree/assets/images/home_hero.jpg";
 import heroBadge from "../../Jasons Tree/assets/images/bggreenbottomright.png";
 import heroEllipse from "../../Jasons Tree/assets/images/Ellipse 1.png";
 import heroBgLayer from "../../Jasons Tree/assets/images/hero-bg-2.png";
@@ -88,6 +88,7 @@ const HomePage = () => {
               className="w-full h-[110%] object-cover object-top sm:hidden absolute top-0 left-0"
               style={{ objectPosition: "center top" }}
             />
+            <div className="absolute inset-0 bg-white/60" />
             
             <div
               className="absolute bottom-[10%] right-[12%] hidden lg:flex justify-start items-center gap-3 text-white pl-4 pr-6 py-3 rounded-full hero-badge z-[100]"

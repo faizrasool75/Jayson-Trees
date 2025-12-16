@@ -3,8 +3,8 @@ import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
 import SlidingText from "../components/SlidingText";
 import mainBg from "../../Jasons Tree/assets/images/mainbg.png";
-import serviceHero from "../../Jasons Tree/assets/images/servicepageHero.png";
-import heroMobile from "../../Jasons Tree/assets/images/newEditedBgmobile.png";
+import serviceHero from "../../Jasons Tree/assets/images/services_hero.jpg";
+import heroMobile from "../../Jasons Tree/assets/images/services_hero.jpg";
 
 const ContactPage = () => {
   const { onNavigate } = useOutletContext();
@@ -34,6 +34,7 @@ const ContactPage = () => {
               className="w-full h-[110%] object-cover object-top sm:hidden absolute top-0 left-0"
               style={{ objectPosition: "center top" }}
             />
+            <div className="absolute inset-0 bg-white/60" />
             
             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center px-4 sm:px-8 z-[50]">
               <h1
