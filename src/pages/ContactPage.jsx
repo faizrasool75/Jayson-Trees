@@ -9,6 +9,17 @@ import heroMobile from "../../Jasons Tree/assets/images/services_hero.jpg";
 const ContactPage = () => {
   const { onNavigate } = useOutletContext();
 
+  const handleHighlightContactForm = () => {
+    window.dispatchEvent(new CustomEvent("highlightContactForm"));
+  };
+
+  const handleIconKeyDown = (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleHighlightContactForm();
+    }
+  };
+
   return (
     <div
       className="main text-[#0F0F0F] w-full overflow-hidden"
@@ -57,7 +68,14 @@ const ContactPage = () => {
       <section className="relative px-5 sm:px-16 py-12 sm:py-16 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center text-center gap-4 mb-10 sm:mb-14">
-            <div className="w-14 h-14 rounded-full bg-[#6DC642] flex items-center justify-center">
+            <div
+              role="button"
+              tabIndex={0}
+              aria-label="Scroll to contact form"
+              onClick={handleHighlightContactForm}
+              onKeyDown={handleIconKeyDown}
+              className="w-14 h-14 rounded-full bg-[#6DC642] flex items-center justify-center"
+            >
               <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />

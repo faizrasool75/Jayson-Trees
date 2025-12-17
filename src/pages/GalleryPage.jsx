@@ -194,10 +194,10 @@ const GalleryPage = () => {
 
       <SlidingText text="Commercial Projects • Residential Work • Palm Tree Trimming Los Angeles • Emergency Response • Tree Removal Los Angeles • Crew & Equipment" />
 
-      <section ref={filterRef} className="relative px-5 sm:px-16 py-0 mt-8 sm:mt-12 overflow-hidden">
+      <section ref={filterRef} className="relative px-5 sm:px-16 pt-0 pb-0 mt-8 sm:mt-12 overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-8 scroll-animate fade-up">
-            <div className="flex items-center gap-3">
+          <div className="flex flex-col items-center gap-4 mb-8 text-center scroll-animate fade-up">
+            <div className="flex items-center justify-center gap-3 w-full pb-8">
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#6DC642] flex items-center justify-center shadow-lg">
                 <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
@@ -207,8 +207,8 @@ const GalleryPage = () => {
                 Filter <span className="text-[#6DC642]">Projects</span>
               </h2>
             </div>
-            
-            <div className="flex flex-wrap gap-2 sm:gap-3">
+
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {categories.map((cat, idx) => {
                 const isActive = filter === cat;
                 return (
