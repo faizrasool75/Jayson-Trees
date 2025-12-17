@@ -103,15 +103,22 @@ const Layout = () => {
       el.classList.add("scroll-animate", animationClass);
     });
 
+    const animationTimeouts = new WeakMap();
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const existingTimeout = animationTimeouts.get(entry.target);
+          if (existingTimeout) {
+            window.clearTimeout(existingTimeout);
+          }
+
           if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
-            // Add slight delay for smoother appearance
-            setTimeout(() => {
+            const timeoutId = window.setTimeout(() => {
               entry.target.classList.add("is-visible");
             }, 100);
-            observer.unobserve(entry.target);
+            animationTimeouts.set(entry.target, timeoutId);
+          } else {
+            entry.target.classList.remove("is-visible");
           }
         });
       },
