@@ -150,7 +150,7 @@ const WhyChooseUsPage = () => {
 
       <SlidingText text="24/7 Emergency Response • Free Estimates • Licensed & Insured • Commercial Tree Specialists • Palm Tree Trimming Los Angeles" />
 
-      <section className="relative px-5 sm:px-16 pt-0 pb-12 sm:pb-20 overflow-hidden">
+      <section className="relative px-5 sm:px-16 pt-20 pb-12 sm:pb-20 overflow-hidden">
         <img src={mwp3} alt="" className="absolute top-[5%] right-[3%] w-16 sm:w-20 opacity-8 pointer-events-none" />
         <img src={mwp3} alt="" className="absolute bottom-[10%] left-[2%] w-14 sm:w-18 opacity-8 pointer-events-none" />
         
