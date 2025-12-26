@@ -8,7 +8,7 @@ import GalleryPage from "./pages/GalleryPage";
 import ContactPage from "./pages/ContactPage";
 
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/Jayson-Trees">
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
